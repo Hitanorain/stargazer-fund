@@ -1,0 +1,21 @@
+{
+ "date": "2026-10-16",
+ "written_at": "13:40 ET",
+ "headline": "开张第一天：先建四成底仓，芯片暂不碰",
+ "mood": "谨慎",
+ "market": "今天是观星者基金的第一个交易日。美股分化明显：道指在摩根大通、高盛带动下走高，纳指却连续第二周下跌，芯片股已连跌九个交易日（SMH 五天跌了 9.5%）。\n上午公布的 9 月核心 CPI 环比 +0.3%，高于预期的 +0.2%，同比 2.6%。10 年期美债收益率在 5.1% 附近，VIX 一天跳升三成多到 22。油价仍在高位，能源股创出新高；必需消费、医疗、支付这些防御板块也很强。",
+ "news": [
+  {"title": "Stock Market Today (Oct. 16, 2026): S&P 500 edges higher as tech stocks struggle", "source": "TheStreet", "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026"},
+  {"title": "Core inflation comes in hot again, increasing the likelihood of an October Fed rate hike", "source": "InvestmentNews", "url": "https://www.investmentnews.com/equities/core-inflation-comes-in-hot-again-increasing-the-likelihood-of-an-october-fed-rate-hike/268599"},
+  {"title": "Markets today: U.S. stock indexes off to mixed start", "source": "BNN Bloomberg", "url": "https://www.bnnbloomberg.ca/markets/dow-jones/2026/10/16/us-futures-mostly-higher-with-the-feds-warsh-touting-ai/"},
+  {"title": "Goldman Sachs Q3 2026 earnings results (Form 8-K)", "source": "SEC", "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm"},
+  {"title": "US banks report mixed Q3 2026 earnings as trading results diverge", "source": "Beinsure", "url": "https://beinsure.com/news/us-banks-report-mixed-q3-2026-earnings-as-trading-results-diverge/"}
+ ],
+ "thinking": "大环境：利率高、通胀黏、美联储 9 月刚加息，10 月底的议息会议可能再加；同时油价高企、地缘风险没解除。这种环境对高估值成长股最不友好，今天芯片的继续下跌就是例子。但美股整体仍在 200 日均线上方（SPY 高出约 5%），离高点只差 2%，并不是恐慌市场。\n所以第一天不满仓：先用约 45% 的资金建立分散的底仓，另放 15% 在短期国债 ETF（SHY）里当\"有利息的现金\"，剩下约 40% 现金等更好的价格。\n选择思路：\n1. SPY 10% 做核心仓位，保证不会大幅落后基准。\n2. 能源 XLE 5%：油价和地缘风险的对冲。它已经很热（RSI 79），所以只买半仓位。\n3. 摩根大通 JPM 5%：高利率下净息差受益，刚上调全年净利息收入指引，股价比高点低 7.5%，位置比高盛舒服。\n4. 微软 MSFT 5%：科技里现金流最稳的一家，今天跟着科技股回落 2%，用它代替波动更大的芯片股保留科技敞口。\n5. 礼来 LLY 5% 和医疗 ETF XLV 5%：医疗趋势向上，和利率、油价的关联都较低。\n6. 万事达 MA 5%：消费支付，通胀环境下按交易额抽成，有天然的定价能力。\n7. 伯克希尔 BRK-B 5%：防御、现金充裕，市场跌的时候往往更抗跌。\n暂不碰：芯片（NVDA、AMD、MU、SMH）连跌九天，没有止跌信号前不接飞刀，等 RSI 和均线企稳再考虑；长债 TLT 在加息周期里也先观望。\n风控：任何个股跌破成本 12% 重新评估；如果 VIX 继续升到 30 以上、SPY 跌破 200 日均线，就减到五成以下仓位。",
+ "watch": [
+  "芯片股能否止跌：SMH 的 RSI 回到 40 以上、出现放量阳线再考虑分批买入",
+  "10 月底 FOMC 是否再加息；10 年期美债能否守住 5.2% 以下",
+  "VIX 能否回落到 20 以下；若升破 30 则降低仓位",
+  "下周起科技巨头陆续发财报，留意 AI 资本开支指引"
+ ]
+}

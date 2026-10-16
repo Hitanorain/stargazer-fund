@@ -1,0 +1,30 @@
+# 行情快照（盘中，供 AI 决策）+ 收盘结算（成交挂单、记净值）
+name: market
+on:
+  schedule:
+    - cron: '45 18 * * 1-5'   # 盘中快照：美东 14:45（夏令时）/ 13:45（冬令时）
+    - cron: '20 22 * * 1-5'   # 收盘结算：美东 18:20 / 17:20
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: market
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 抓行情
+        run: python tools/fetch.py
+      - name: 结算
+        run: python tools/settle.py
+      - name: 提交
+        run: |
+          git config user.name "stargazer-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "无变化"; exit 0; fi
+          git commit -m "行情 / 结算 $(TZ=America/New_York date +%F' '%H:%M) ET"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
