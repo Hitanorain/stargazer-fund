@@ -19,7 +19,7 @@ def get_json(url, tries=3):
 
 
 def fetch_symbol(sym, rng='2y'):
-    url = f'https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(sym)}?range={rng}&interval=1d&includePrePost=false'
+    url = f'https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(sym)}?range={rng}&interval=1d&includePrePost=false&events=div'
     res = get_json(url)['chart']['result'][0]
     meta, ts = res['meta'], res.get('timestamp') or []
     q = res['indicators']['quote'][0]
@@ -31,8 +31,10 @@ def fetch_symbol(sym, rng='2y'):
         d = to_et(t).date().isoformat()
         rows.append([d, round(q['open'][i] or c, 4), round(q['high'][i] or c, 4), round(q['low'][i] or c, 4), round(c, 4), int(q['volume'][i] or 0)])
     # 交易时段内，最后一根是"今天到目前为止"
+    # 分红：按除息日记录每股金额
+    divs = {to_et(int(v['date'])).date().isoformat(): v['amount'] for v in (res.get('events') or {}).get('dividends', {}).values()}
     return {
-        'symbol': sym, 'name': meta.get('longName') or meta.get('shortName') or sym,
+        'symbol': sym, 'name': meta.get('longName') or meta.get('shortName') or sym, 'divs': divs,
         'price': meta.get('regularMarketPrice'), 'time': meta.get('regularMarketTime'),
         'rows': rows,
     }

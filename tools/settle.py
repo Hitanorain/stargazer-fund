@@ -14,18 +14,30 @@ def W(p, obj):
     p.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
-_cache = {}
+_cache, _divs = {}, {}
 
 
 def closes(sym):
-    """{date: close}，同一次运行内缓存"""
+    """{date: close}，同一次运行内缓存（收盘价为未复权价；分红单独计入现金）"""
     if sym not in _cache:
         try:
-            _cache[sym] = {r[0]: r[4] for r in fetch_symbol(sym, '6mo')['rows']}
+            d = fetch_symbol(sym, '6mo')
+            _cache[sym] = {r[0]: r[4] for r in d['rows']}
+            _divs[sym] = d.get('divs', {})
         except Exception as e:
             print(f'  ! 取不到 {sym}: {e}')
-            _cache[sym] = {}
+            _cache[sym], _divs[sym] = {}, {}
     return _cache[sym]
+
+
+def div_on(sym, d):
+    closes(sym)
+    return _divs.get(sym, {}).get(d, 0.0)
+
+
+def prev_session(sym, d):
+    prev = [k for k in closes(sym) if k < d]
+    return max(prev) if prev else None
 
 
 def close_on(sym, d, exact=False):
@@ -36,6 +48,17 @@ def close_on(sym, d, exact=False):
         return None
     prev = [k for k in c if k <= d]
     return c[max(prev)] if prev else None
+
+
+def bench(nav, key, sym, d):
+    """基准按全收益计算（分红再投资），首日为 $1,000,000"""
+    if not nav or nav[-1].get(key) is None:
+        return INITIAL_CASH
+    pd = prev_session(sym, d)
+    c0, c1 = close_on(sym, pd), close_on(sym, d)
+    if not c0 or not c1:
+        return nav[-1][key]
+    return round(nav[-1][key] * (c1 + div_on(sym, d)) / c0, 2)
 
 
 def completed_sessions():
@@ -115,31 +138,37 @@ def main():
     pf = J(DATA / 'portfolio.json', {'cash': INITIAL_CASH, 'positions': {}, 'as_of': None})
     trades = J(DATA / 'trades.json', [])
     nav = J(DATA / 'nav.json', [])
+    divs = J(DATA / 'dividends.json', [])
     sessions = completed_sessions()
     expire_stale(sessions)
     last = nav[-1]['date'] if nav else None
-    spy0 = close_on(BENCHMARK, sessions[0]) if sessions else None
-    qqq0 = close_on('QQQ', sessions[0]) if sessions else None
     for d in sessions:
         if last and d <= last:
             continue
+        # 除息日：按前一日收盘时的持股数入账股息（在当日成交之前）
+        for s, p in list(pf['positions'].items()):
+            a = div_on(s, d)
+            if a:
+                pf['cash'] += p['shares'] * a
+                divs.append({'date': d, 'symbol': s, 'shares': p['shares'], 'per_share': a, 'amount': round(p['shares'] * a, 2)})
+                print(f'  {d}: {s} 分红 ${p["shares"] * a:,.2f}')
         fill_orders(d, pf, trades)
         mv = sum(p['shares'] * (close_on(s, d) or p['cost']) for s, p in pf['positions'].items())
         v = pf['cash'] + mv
         nav.append({'date': d, 'nav': round(v, 2), 'cash': round(pf['cash'], 2), 'invested': round(mv, 2),
-                    'spy': round(INITIAL_CASH * close_on(BENCHMARK, d) / spy0, 2),
-                    'qqq': round(INITIAL_CASH * close_on('QQQ', d) / qqq0, 2) if qqq0 else None})
+                    'spy': bench(nav, 'spy', BENCHMARK, d), 'qqq': bench(nav, 'qqq', 'QQQ', d)})
         pf['as_of'] = d
         print(f'  {d}: 净值 {v:,.2f}')
 
     W(DATA / 'portfolio.json', pf)
     W(DATA / 'trades.json', trades)
     W(DATA / 'nav.json', nav)
-    write_summary(pf, nav, trades)
+    W(DATA / 'dividends.json', divs)
+    write_summary(pf, nav, trades, divs)
     return 0
 
 
-def write_summary(pf, nav, trades):
+def write_summary(pf, nav, trades, divs):
     d = pf['as_of']
     hold = []
     total = nav[-1]['nav'] if nav else INITIAL_CASH
@@ -164,7 +193,7 @@ def write_summary(pf, nav, trades):
         'nav': total, 'cash': pf['cash'], 'ret': total / INITIAL_CASH - 1,
         'spy_ret': nav[-1]['spy'] / INITIAL_CASH - 1 if nav else 0,
         'day_ret': nav[-1]['nav'] / nav[-2]['nav'] - 1 if len(nav) > 1 else total / INITIAL_CASH - 1,
-        'max_drawdown': mdd, 'days': len(nav), 'trades': len(trades), 'holdings': hold, 'pending': pending,
+        'max_drawdown': mdd, 'days': len(nav), 'trades': len(trades), 'dividends': round(sum(x['amount'] for x in divs), 2), 'holdings': hold, 'pending': pending,
     })
 
 

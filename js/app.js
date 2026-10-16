@@ -8,8 +8,8 @@
   const cls = v => (v > 0.00005 ? 'up' : v < -0.00005 ? 'down' : '');
   const SERIES = [
     { key: 'nav', name: '观星者基金', color: getComputedStyle(document.documentElement).getPropertyValue('--fund').trim(), glow: '#ffd98a', w: 2.4 },
-    { key: 'spy', name: '标普500 (SPY)', color: '#3f97e6', w: 1.6 },
-    { key: 'qqq', name: '纳指100 (QQQ)', color: '#d65f95', w: 1.6 },
+    { key: 'spy', name: '标普500 (SPY 含分红)', color: '#3f97e6', w: 1.6 },
+    { key: 'qqq', name: '纳指100 (QQQ 含分红)', color: '#d65f95', w: 1.6 },
   ];
 
   stars();
@@ -37,7 +37,7 @@
       k('累计收益', pct(s.ret), `同期 SPY ${pct(s.spy_ret)}`, cls(s.ret)) +
       k('跑赢大盘', pct(ex), ex >= 0 ? '领先标普500' : '落后标普500', cls(ex)) +
       k('最近一日', pct(s.day_ret), `运行 ${s.days} 个交易日`, cls(s.day_ret)) +
-      k('现金 / 回撤', `${(s.cash / s.nav * 100).toFixed(0)}%`, `最大回撤 ${pct(s.max_drawdown)}`);
+      k('现金 / 回撤', `${(s.cash / s.nav * 100).toFixed(0)}%`, `最大回撤 ${pct(s.max_drawdown)}${s.dividends ? ' · 股息 ' + money(s.dividends) : ''}`);
   }
 
   // —— 净值图（SVG，单一纵轴，三条线都以 $1,000,000 起点对齐）——
@@ -95,7 +95,7 @@
     };
     draw();
     addEventListener('resize', draw);
-    $('chart-note').textContent = nav.length < 5 ? `基金从 ${nav[0]?.date || '2026-10-16'} 开始运行，曲线会随着交易日一天天变长。三条线都按 $1,000,000 起点对齐。` : '三条线都按 $1,000,000 起点对齐，便于直接比较。';
+    $('chart-note').textContent = nav.length < 5 ? `基金从 ${nav[0]?.date || '2026-10-16'} 开始运行，曲线会随着交易日一天天变长。三条线都按 $1,000,000 起点对齐，基准按全收益（分红再投资）计算。` : '三条线都按 $1,000,000 起点对齐，基准按全收益（分红再投资）计算，持仓的分红也计入基金现金。';
   }
   function niceTicks(lo, hi, n) {
     const raw = (hi - lo) / n, mag = Math.pow(10, Math.floor(Math.log10(raw))), st = [1, 2, 2.5, 5, 10].map(k => k * mag).find(k => k >= raw);

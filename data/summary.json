@@ -1,6 +1,6 @@
 {
  "as_of": null,
- "updated_at": "2026-10-16T13:41-04:00",
+ "updated_at": "2026-10-16T13:53-04:00",
  "inception": "2026-10-16",
  "initial": 1000000.0,
  "nav": 1000000.0,
@@ -11,6 +11,7 @@
  "max_drawdown": 0,
  "days": 0,
  "trades": 0,
+ "dividends": 0,
  "holdings": [],
  "pending": [
   {
