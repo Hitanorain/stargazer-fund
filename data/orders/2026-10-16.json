@@ -1,15 +1,144 @@
 {
  "date": "2026-10-16",
- "status": "pending",
+ "status": "filled",
  "orders": [
-  {"symbol": "SPY", "side": "buy", "value": 100000, "reason": "核心底仓，跟住大盘，避免大幅偏离基准"},
-  {"symbol": "SHY", "side": "buy", "value": 150000, "reason": "短期国债当作有利息的现金，等待更好的加仓时机"},
-  {"symbol": "JPM", "side": "buy", "value": 50000, "reason": "高利率下净息差受益，刚上调全年净利息收入指引，股价离高点 7.5%"},
-  {"symbol": "MSFT", "side": "buy", "value": 50000, "reason": "现金流最稳的科技龙头，今天随科技股回落，用它代替芯片保留科技敞口"},
-  {"symbol": "LLY", "side": "buy", "value": 50000, "reason": "医疗龙头，趋势向上，与利率和油价相关性低"},
-  {"symbol": "XLV", "side": "buy", "value": 50000, "reason": "医疗板块分散配置，防御属性"},
-  {"symbol": "MA", "side": "buy", "value": 50000, "reason": "支付网络按交易额抽成，通胀环境下有定价能力，趋势强"},
-  {"symbol": "BRK-B", "side": "buy", "value": 50000, "reason": "防御型核心持仓，现金充裕，下跌时更抗跌"},
-  {"symbol": "XLE", "side": "buy", "value": 50000, "reason": "对冲高油价和地缘风险；板块偏热，只建半仓"}
- ]
+  {
+   "symbol": "SPY",
+   "side": "buy",
+   "value": 100000,
+   "reason": "核心底仓，跟住大盘，避免大幅偏离基准"
+  },
+  {
+   "symbol": "SHY",
+   "side": "buy",
+   "value": 150000,
+   "reason": "短期国债当作有利息的现金，等待更好的加仓时机"
+  },
+  {
+   "symbol": "JPM",
+   "side": "buy",
+   "value": 50000,
+   "reason": "高利率下净息差受益，刚上调全年净利息收入指引，股价离高点 7.5%"
+  },
+  {
+   "symbol": "MSFT",
+   "side": "buy",
+   "value": 50000,
+   "reason": "现金流最稳的科技龙头，今天随科技股回落，用它代替芯片保留科技敞口"
+  },
+  {
+   "symbol": "LLY",
+   "side": "buy",
+   "value": 50000,
+   "reason": "医疗龙头，趋势向上，与利率和油价相关性低"
+  },
+  {
+   "symbol": "XLV",
+   "side": "buy",
+   "value": 50000,
+   "reason": "医疗板块分散配置，防御属性"
+  },
+  {
+   "symbol": "MA",
+   "side": "buy",
+   "value": 50000,
+   "reason": "支付网络按交易额抽成，通胀环境下有定价能力，趋势强"
+  },
+  {
+   "symbol": "BRK-B",
+   "side": "buy",
+   "value": 50000,
+   "reason": "防御型核心持仓，现金充裕，下跌时更抗跌"
+  },
+  {
+   "symbol": "XLE",
+   "side": "buy",
+   "value": 50000,
+   "reason": "对冲高油价和地缘风险；板块偏热，只建半仓"
+  }
+ ],
+ "fills": [
+  {
+   "date": "2026-10-16",
+   "symbol": "SPY",
+   "side": "buy",
+   "shares": 130,
+   "price": 763.6316,
+   "value": 99272.11,
+   "reason": "核心底仓，跟住大盘，避免大幅偏离基准"
+  },
+  {
+   "date": "2026-10-16",
+   "symbol": "SHY",
+   "side": "buy",
+   "shares": 1842,
+   "price": 81.4007,
+   "value": 149940.05,
+   "reason": "短期国债当作有利息的现金，等待更好的加仓时机"
+  },
+  {
+   "date": "2026-10-16",
+   "symbol": "JPM",
+   "side": "buy",
+   "shares": 147,
+   "price": 339.8899,
+   "value": 49963.81,
+   "reason": "高利率下净息差受益，刚上调全年净利息收入指引，股价离高点 7.5%"
+  },
+  {
+   "date": "2026-10-16",
+   "symbol": "MSFT",
+   "side": "buy",
+   "shares": 94,
+   "price": 529.3145,
+   "value": 49755.57,
+   "reason": "现金流最稳的科技龙头，今天随科技股回落，用它代替芯片保留科技敞口"
+  },
+  {
+   "date": "2026-10-16",
+   "symbol": "LLY",
+   "side": "buy",
+   "shares": 39,
+   "price": 1257.6585,
+   "value": 49048.68,
+   "reason": "医疗龙头，趋势向上，与利率和油价相关性低"
+  },
+  {
+   "date": "2026-10-16",
+   "symbol": "XLV",
+   "side": "buy",
+   "shares": 282,
+   "price": 176.7984,
+   "value": 49857.14,
+   "reason": "医疗板块分散配置，防御属性"
+  },
+  {
+   "date": "2026-10-16",
+   "symbol": "MA",
+   "side": "buy",
+   "shares": 80,
+   "price": 617.7287,
+   "value": 49418.3,
+   "reason": "支付网络按交易额抽成，通胀环境下有定价能力，趋势强"
+  },
+  {
+   "date": "2026-10-16",
+   "symbol": "BRK-B",
+   "side": "buy",
+   "shares": 93,
+   "price": 532.286,
+   "value": 49502.6,
+   "reason": "防御型核心持仓，现金充裕，下跌时更抗跌"
+  },
+  {
+   "date": "2026-10-16",
+   "symbol": "XLE",
+   "side": "buy",
+   "shares": 732,
+   "price": 68.2741,
+   "value": 49976.66,
+   "reason": "对冲高油价和地缘风险；板块偏热，只建半仓"
+  }
+ ],
+ "notes": []
 }
