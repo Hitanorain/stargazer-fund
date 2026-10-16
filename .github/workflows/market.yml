@@ -1,30 +1,47 @@
-# 行情快照（盘中，供 AI 决策）+ 收盘结算（成交挂单、记净值）
+# 行情快照（盘中，供 AI 决策）+ 收盘结算（成交挂单、记净值）+ 盘中每 30 分钟刷新网页用的最新价
 name: market
 on:
   schedule:
-    - cron: '45 18 * * 1-5'   # 盘中快照：美东 14:45（夏令时）/ 13:45（冬令时）
-    - cron: '20 22 * * 1-5'   # 收盘结算：美东 18:20 / 17:20
+    - cron: '45 18 * * 1-5'       # 盘中快照：美东 14:45（夏令时）/ 13:45（冬令时）
+    - cron: '20 22 * * 1-5'       # 收盘结算：美东 18:20 / 17:20
+    - cron: '*/30 13-21 * * 1-5'  # 轻量刷新 data/quotes.json（覆盖夏令时、冬令时的交易时段；价格没变不提交）
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'full = 抓行情 + 结算；quotes = 只刷新最新价'
+        type: choice
+        options: [full, quotes]
+        default: full
 permissions:
   contents: write
-concurrency: market
+# 两种任务分开排队：盘中刷新再频繁也不会把排队中的快照 / 结算挤掉（同组里新排队的会取消旧的排队）
+concurrency:
+  group: market-${{ (github.event.schedule == '*/30 13-21 * * 1-5' || inputs.mode == 'quotes') && 'quotes' || 'full' }}
 jobs:
   run:
     runs-on: ubuntu-latest
+    env:
+      QUOTES_ONLY: ${{ github.event.schedule == '*/30 13-21 * * 1-5' || inputs.mode == 'quotes' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: 刷新最新价
+        if: env.QUOTES_ONLY == 'true'
+        run: python tools/fetch.py --quotes
       - name: 抓行情
+        if: env.QUOTES_ONLY != 'true'
         run: python tools/fetch.py
       - name: 结算
+        if: env.QUOTES_ONLY != 'true'
         run: python tools/settle.py
       - name: 提交
         run: |
           git config user.name "stargazer-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
+          if [ "$QUOTES_ONLY" = "true" ]; then git add data/quotes.json; msg="最新价"; else git add data; msg="行情 / 结算"; fi
           if git diff --cached --quiet; then echo "无变化"; exit 0; fi
-          git commit -m "行情 / 结算 $(TZ=America/New_York date +%F' '%H:%M) ET"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          git commit -m "$msg $(TZ=America/New_York date +%F' '%H:%M) ET"
+          # 两个任务恰好同时改了 quotes.json 时，以本次刚抓到的为准
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done

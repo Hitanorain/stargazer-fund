@@ -1,9 +1,11 @@
 """抓取行情（Yahoo Finance 公开图表接口），生成给 AI 看的市场快照。
 
-python tools/fetch.py          抓观察池 + 持仓 + 自选，写 data/prices/*.json、data/snapshot.json、data/snapshot.md
+python tools/fetch.py          抓观察池 + 持仓 + 自选，写 data/prices/*.json、data/snapshot.json、data/snapshot.md，
+                               以及网页用的 data/quotes.json（最新价）和 data/closes.json（每日收盘价 + 分红，玩家结算用）
+python tools/fetch.py --quotes 盘中轻量刷新：只更新 data/quotes.json（价格没变就不写文件）
 """
 import json, time, math, sys, urllib.request, urllib.parse
-from config import DATA, ETFS, STOCKS, INDICATORS, BENCHMARK, to_et
+from config import DATA, ETFS, STOCKS, INDICATORS, BENCHMARK, INCEPTION, to_et
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126 Safari/537.36'}
 
 
@@ -33,9 +35,17 @@ def fetch_symbol(sym, rng='2y', tries=3, timeout=12):
     # 交易时段内，最后一根是"今天到目前为止"
     # 分红：按除息日记录每股金额
     divs = {to_et(int(v['date'])).date().isoformat(): v['amount'] for v in (res.get('events') or {}).get('dividends', {}).values()}
+    # 前收：最近一根K线就是最新价所在的交易日时，取它前一根；range=1d 时 Yahoo 直接给 chartPreviousClose
+    t = meta.get('regularMarketTime')
+    if rng == '1d' or not rows:
+        prev = meta.get('chartPreviousClose')
+    elif t and rows[-1][0] == to_et(t).date().isoformat():
+        prev = rows[-2][4] if len(rows) > 1 else None
+    else:
+        prev = rows[-1][4]
     return {
         'symbol': sym, 'name': meta.get('longName') or meta.get('shortName') or sym, 'divs': divs,
-        'price': meta.get('regularMarketPrice'), 'time': meta.get('regularMarketTime'),
+        'price': meta.get('regularMarketPrice'), 'time': t, 'prev': prev,
         'rows': rows,
     }
 
@@ -100,9 +110,7 @@ def pct(x, d=1):
     return '—' if x is None else f'{x * 100:+.{d}f}%'
 
 
-def main():
-    DATA.mkdir(exist_ok=True)
-    (DATA / 'prices').mkdir(exist_ok=True)
+def universe():
     watch = []
     try:
         watch = json.loads((DATA / 'watchlist.json').read_text(encoding='utf-8')).get('symbols', [])
@@ -113,12 +121,101 @@ def main():
         held = list(json.loads((DATA / 'portfolio.json').read_text(encoding='utf-8'))['positions'].keys())
     except FileNotFoundError:
         pass
-    syms = list(dict.fromkeys(ETFS + STOCKS + watch + held))
-    # 先探一下网络：连 Yahoo 都连不上（例如受限的云端沙箱），就立刻退出，改用仓库里已有的快照
+    return list(dict.fromkeys(ETFS + STOCKS + watch + held))
+
+
+def session_done(d, now):
+    """该交易日是否已收完盘（16:20 美东之后才算，与 settle.py 一致）"""
+    today = now.date().isoformat()
+    return d < today or (d == today and now.hour * 60 + now.minute >= 16 * 60 + 20)
+
+
+def write_quotes(out, state, now):
+    """data/quotes.json：每个标的一行 [名称, 最新价, 前收, 成交时间(unix)]。价格都没变就不写，避免无意义的提交。"""
+    p = DATA / 'quotes.json'
+    q = {s: [d['name'], d['price'], d['prev'], d['time']] for s, d in out.items() if d.get('price') is not None}
+    try:
+        old = json.loads(p.read_text(encoding='utf-8')).get('q', {})
+    except Exception:
+        old = {}
+    if old and all(s in old and old[s][1:3] == v[1:3] for s, v in q.items()):
+        print('quotes.json：价格没有变化，不写入')
+        return False
+    for s, v in old.items():      # 本次没抓到的保留旧值
+        q.setdefault(s, v)
+    lines = [f'{json.dumps(s)}:{json.dumps(v, ensure_ascii=False, separators=(",", ":"))}' for s, v in q.items()]
+    head = json.dumps({'updated_at': now.isoformat(timespec='minutes'), 'state': state}, ensure_ascii=False)[:-1]
+    p.write_text(head + ',"q":{\n' + ',\n'.join(lines) + '\n}}\n', encoding='utf-8')
+    print(f'quotes.json：{len(q)} 个标的')
+    return True
+
+
+def write_closes(out, now):
+    """data/closes.json：自基金开始前一个交易日起，每个交易日所有标的的收盘价（未复权）和除息日分红，供网页结算玩家订单。
+    只追加 / 更新，不删除已有标的和日期；每个标的一行，方便 git 做增量压缩。"""
+    p = DATA / 'closes.json'
+    try:
+        old = json.loads(p.read_text(encoding='utf-8'))
+    except Exception:
+        old = {'dates': [], 'c': {}, 'div': {}}
+    spy = [r[0] for r in out[BENCHMARK]['rows']]
+    base = [d for d in spy if d < INCEPTION][-1:]          # 起点前一个交易日，用作对齐基准
+    dates = sorted(set(old['dates']) | {d for d in spy if d >= INCEPTION and session_done(d, now)} | set(base))
+    cmap = {s: dict(zip(old['dates'], v)) for s, v in old['c'].items()}
+    divs = {s: dict(v) for s, v in old.get('div', {}).items()}
+    first = dates[0] if dates else INCEPTION
+    for s, d in out.items():
+        m = cmap.setdefault(s, {})
+        for r in d['rows']:
+            if r[0] in dates and m.get(r[0]) is None:    # 已记下的收盘价不再改动，玩家的历史结算结果保持稳定
+                m[r[0]] = r[4]
+        dv = {k: v for k, v in d.get('divs', {}).items() if k > first and k in dates}
+        if dv:
+            divs.setdefault(s, {}).update(dv)
+    c = {s: [m.get(d) for d in dates] for s, m in cmap.items()}
+    lines = [f'{json.dumps(s)}:{json.dumps(v, separators=(",", ":"))}' for s, v in c.items()]
+    p.write_text('{"dates":' + json.dumps(dates) + ',\n"div":' + json.dumps(divs, separators=(',', ':')) +
+                 ',\n"c":{\n' + ',\n'.join(lines) + '\n}}\n', encoding='utf-8')
+    print(f'closes.json：{len(dates)} 个交易日 × {len(c)} 个标的')
+
+
+def probe():
+    """先探一下网络：连 Yahoo 都连不上（例如受限的云端沙箱），就立刻退出"""
     try:
         fetch_symbol(BENCHMARK, '5d', tries=1, timeout=8)
+        return True
     except Exception as e:
         print(f'网络不通，无法访问 Yahoo Finance（{e}）。未改动任何文件，请使用仓库里已有的 data/snapshot.md。')
+        return False
+
+
+def quotes_only():
+    if not probe():
+        return 2
+    syms = universe()
+    out, fails = {}, 0
+    for s in syms:
+        try:
+            out[s] = fetch_symbol(s, '1d', tries=2)
+        except Exception:
+            fails += 1
+        time.sleep(0.1)
+    if len(out) < len(syms) * 0.8:
+        print(f'只抓到 {len(out)}/{len(syms)} 个标的，不更新 quotes.json')
+        return 1
+    now = to_et()
+    write_quotes(out, market_state(now), now)
+    return 0
+
+
+def main():
+    if '--quotes' in sys.argv:
+        return quotes_only()
+    DATA.mkdir(exist_ok=True)
+    (DATA / 'prices').mkdir(exist_ok=True)
+    syms = universe()
+    # 先探一下网络：连 Yahoo 都连不上（例如受限的云端沙箱），就立刻退出，改用仓库里已有的快照
+    if not probe():
         return 2
     out, fails = {}, []
     streak = 0
@@ -172,6 +269,10 @@ def main():
     if fails:
         L += ['', '## 抓取失败', *[f'- {f}' for f in fails]]
     (DATA / 'snapshot.md').write_text('\n'.join(L) + '\n', encoding='utf-8')
+    tradable = {s: out[s] for s in syms if s in out}
+    write_quotes(tradable, state, now)
+    if BENCHMARK in tradable:
+        write_closes(tradable, now)
     print(f'fetched {len(out)} symbols, state={state}, session={spy_last}, failed={len(fails)}')
     return 0 if len(out) > len(syms) * 0.8 else 1
 

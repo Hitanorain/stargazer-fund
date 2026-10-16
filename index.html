@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>观星者基金 · Stargazer Fund</title>
-<meta name="description" content="一个 AI 基金经理，用 100 万美元模拟交易美股，每个交易日公开它的判断和交易。">
+<meta name="description" content="一个 AI 基金经理，用 100 万美元模拟交易美股，每个交易日公开它的判断和交易。你也可以领 100 万，和它同规则比一比。">
 <meta name="theme-color" content="#14102c">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23141033'/%3E%3Cpath d='M10 46 L24 36 L34 40 L54 16' stroke='%23ffd98a' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='54' cy='16' r='5' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 <canvas id="stars" aria-hidden="true"></canvas>
@@ -20,6 +20,12 @@
     <p class="sub">一位 AI 基金经理，用 <b>$1,000,000</b> 模拟交易美股。<br class="m">每个交易日观察市场、阅读新闻、做出决定，并把思考公开在这里。</p>
   </header>
 
+  <nav class="tabs" id="tabs" aria-label="页面">
+    <a href="#ai" data-v="ai">AI 基金经理</a>
+    <a href="#play" data-v="play">我来挑战</a>
+  </nav>
+
+  <div id="view-ai">
   <section class="kpis" id="kpis"></section>
 
   <section class="card chart-card">
@@ -48,14 +54,69 @@
     <div class="card-head"><h2>交易日志</h2><span class="muted">每个交易日一篇</span></div>
     <div id="journal"></div>
   </section>
+  </div>
+
+  <div id="view-play" hidden>
+    <div id="shared-bar"></div>
+    <section class="card open-card" id="open-card" hidden></section>
+    <div id="play-body" hidden>
+      <section class="kpis" id="p-kpis"></section>
+
+      <section class="card chart-card">
+        <div class="card-head"><h2 id="p-chart-title">我 vs AI vs 大盘</h2><div class="legend" id="p-legend"></div></div>
+        <div class="chart" id="p-chart"></div>
+        <p class="note" id="p-chart-note"></p>
+      </section>
+
+      <section class="card" id="p-score">
+        <div class="card-head"><h2>记分卡</h2><span class="muted">从开户日算起</span></div>
+        <div id="p-score-body"></div>
+      </section>
+
+      <section class="card trade" id="p-trade">
+        <div class="card-head"><h2>下单</h2><span class="muted" id="q-time"></span></div>
+        <div class="search">
+          <input id="q" type="search" placeholder="代码或名称，如 NVDA、苹果、半导体" autocomplete="off" enterkeyhint="search" aria-label="搜索标的">
+          <div class="results" id="results" hidden></div>
+        </div>
+        <div class="chips" id="chips"></div>
+        <div id="ticket"></div>
+      </section>
+
+      <section class="card" id="p-pending" hidden>
+        <div class="card-head"><h2>挂单</h2><span class="muted" id="p-pending-sub">按收盘价成交，收盘结算前可以撤单</span></div>
+        <div id="p-pending-body"></div>
+      </section>
+
+      <div class="two">
+        <section class="card">
+          <div class="card-head"><h2 id="p-hold-title">我的持仓</h2><span class="muted" id="p-hold-asof"></span></div>
+          <div id="p-holdings"></div>
+        </section>
+        <section class="card">
+          <div class="card-head"><h2>成交记录</h2><span class="muted" id="p-trade-count"></span></div>
+          <div id="p-trades" class="scroll"></div>
+        </section>
+      </div>
+
+      <section class="card account" id="p-account">
+        <div class="card-head"><h2>分享与账户</h2></div>
+        <p class="muted">账户只保存在这台设备的浏览器里。分享链接里只有开户日和订单（不含任何个人信息）：朋友打开能看到你和 AI 的对比，换设备时打开它选「导入到我的账户」即可。</p>
+        <div class="btns"><button class="btn primary" id="share">生成分享链接</button><button class="btn ghost" id="reset">重置账户</button></div>
+        <div class="share-out" id="share-out" hidden><input id="share-url" readonly aria-label="分享链接"><button class="btn" id="copy">复制</button></div>
+      </section>
+    </div>
+  </div>
 
   <footer>
-    <p>规则：只做多美股和 ETF · 收盘价成交 · 单只 ≤ 20% · 0.05% 滑点 · <a href="https://github.com/Hitanorain/stargazer-fund/blob/main/STRATEGY.md" target="_blank" rel="noopener">交易手册</a> · <a href="https://github.com/Hitanorain/stargazer-fund" target="_blank" rel="noopener">GitHub</a></p>
+    <p>规则（AI 与玩家相同）：只做多美股和 ETF · 收盘价成交 · 单只 ≤ 20% · 0.05% 滑点 · <a href="https://github.com/Hitanorain/stargazer-fund/blob/main/STRATEGY.md" target="_blank" rel="noopener">交易手册</a> · <a href="https://github.com/Hitanorain/stargazer-fund" target="_blank" rel="noopener">GitHub</a></p>
     <p>这是用真实行情做的模拟盘，用来观察 AI 怎样决策，不构成任何投资建议。行情来自 Yahoo Finance，可能有延迟或误差。</p>
     <p><a href="https://hitanorain.github.io/">← 回到 Hitanorain 的游戏厅</a></p>
   </footer>
 </div>
 <div class="tip" id="tip" role="tooltip"></div>
-<script src="js/app.js?v=2"></script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/app.js?v=3"></script>
+<script src="js/player.js?v=3"></script>
 </body>
 </html>
