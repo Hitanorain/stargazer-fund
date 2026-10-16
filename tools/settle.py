@@ -135,6 +135,11 @@ def expire_stale(sessions):
 
 
 def main():
+    try:
+        fetch_symbol(BENCHMARK, '5d', tries=1, timeout=8)
+    except Exception as e:
+        print(f'网络不通，无法访问 Yahoo Finance（{e}），跳过结算；收盘后的 GitHub Actions 会完成结算。')
+        return 2
     pf = J(DATA / 'portfolio.json', {'cash': INITIAL_CASH, 'positions': {}, 'as_of': None})
     trades = J(DATA / 'trades.json', [])
     nav = J(DATA / 'nav.json', [])

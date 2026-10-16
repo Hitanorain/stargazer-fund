@@ -25,7 +25,7 @@
 ## 每日流程
 
 1. `git pull --rebase` 拿到最新数据。
-2. 运行 `python tools/fetch.py` 刷新行情快照。如果网络不通，就用仓库里已有的 `data/snapshot.md`，并在日志里注明快照时间。
+2. 运行 `python tools/fetch.py` 刷新行情快照。如果它输出“网络不通”（退出码 2）或抓取失败，就用仓库里已有的 `data/snapshot.md`（GitHub Actions 每个交易日美东约 14:45 生成），并在日志里注明快照时间。
 3. 运行 `python tools/settle.py`，确保之前的挂单已经结算。如果网络不通、失败了也没关系，收盘后的 GitHub Actions 会再结算一次。
 4. 阅读：
    - `data/snapshot.md`：行情、涨跌、均线、RSI、量比、波动、VIX、利率、美元。

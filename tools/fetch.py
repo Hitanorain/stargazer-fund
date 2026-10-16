@@ -7,10 +7,10 @@ from config import DATA, ETFS, STOCKS, INDICATORS, BENCHMARK, to_et
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126 Safari/537.36'}
 
 
-def get_json(url, tries=3):
+def get_json(url, tries=3, timeout=12):
     for k in range(tries):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=20) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout) as r:
                 return json.loads(r.read().decode())
         except Exception as e:
             if k == tries - 1:
@@ -18,9 +18,9 @@ def get_json(url, tries=3):
             time.sleep(1.5 * (k + 1))
 
 
-def fetch_symbol(sym, rng='2y'):
+def fetch_symbol(sym, rng='2y', tries=3, timeout=12):
     url = f'https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(sym)}?range={rng}&interval=1d&includePrePost=false&events=div'
-    res = get_json(url)['chart']['result'][0]
+    res = get_json(url, tries, timeout)['chart']['result'][0]
     meta, ts = res['meta'], res.get('timestamp') or []
     q = res['indicators']['quote'][0]
     rows = []
@@ -114,14 +114,25 @@ def main():
     except FileNotFoundError:
         pass
     syms = list(dict.fromkeys(ETFS + STOCKS + watch + held))
+    # 先探一下网络：连 Yahoo 都连不上（例如受限的云端沙箱），就立刻退出，改用仓库里已有的快照
+    try:
+        fetch_symbol(BENCHMARK, '5d', tries=1, timeout=8)
+    except Exception as e:
+        print(f'网络不通，无法访问 Yahoo Finance（{e}）。未改动任何文件，请使用仓库里已有的 data/snapshot.md。')
+        return 2
     out, fails = {}, []
+    streak = 0
     for s in syms + list(INDICATORS):
+        if streak >= 5:
+            fails.append(f'{s}: 连续失败过多，跳过'); continue
         try:
             d = fetch_symbol(s)
             (DATA / 'prices' / f'{s.replace("^", "_")}.json').write_text(json.dumps(d, separators=(',', ':')), encoding='utf-8')
             out[s] = d
+            streak = 0
         except Exception as e:
             fails.append(f'{s}: {e}')
+            streak += 1
         time.sleep(0.15)
 
     now = to_et()
@@ -129,6 +140,9 @@ def main():
     spy_last = out.get(BENCHMARK, {}).get('rows', [[None]])[-1][0]
     if state == 'open' and spy_last != now.date().isoformat():
         state = 'closed'   # 工作日但 SPY 没有今天的K线 → 节假日
+    if len(out) < len(syms) * 0.8:
+        print(f'只抓到 {len(out)}/{len(syms)} 个标的，保留原快照不覆盖。失败示例：{fails[:3]}')
+        return 1
     snap = {
         'generated_at': now.isoformat(timespec='minutes'), 'market_state': state, 'session_date': spy_last,
         'indicators': {k: summarize(out[k]) for k in INDICATORS if k in out},
