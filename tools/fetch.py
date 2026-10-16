@@ -5,7 +5,7 @@ python tools/fetch.py          抓观察池 + 持仓 + 自选，写 data/prices/
 python tools/fetch.py --quotes 盘中轻量刷新：只更新 data/quotes.json（价格没变就不写文件）
 """
 import json, time, math, sys, urllib.request, urllib.parse
-from config import DATA, ETFS, STOCKS, INDICATORS, BENCHMARK, INCEPTION, to_et
+from config import DATA, ETFS, STOCKS, PLAYER_EXTRA, INDICATORS, BENCHMARK, INCEPTION, to_et
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126 Safari/537.36'}
 
 
@@ -124,6 +124,24 @@ def universe():
     return list(dict.fromkeys(ETFS + STOCKS + watch + held))
 
 
+def player_extra(syms):
+    return [s for s in PLAYER_EXTRA if s not in syms]
+
+
+def fetch_many(syms, rng):
+    out, streak = {}, 0
+    for s in syms:
+        if streak >= 8:
+            break
+        try:
+            out[s] = fetch_symbol(s, rng, tries=2)
+            streak = 0
+        except Exception:
+            streak += 1
+        time.sleep(0.1)
+    return out
+
+
 def session_done(d, now):
     """该交易日是否已收完盘（16:20 美东之后才算，与 settle.py 一致）"""
     today = now.date().isoformat()
@@ -193,13 +211,8 @@ def quotes_only():
     if not probe():
         return 2
     syms = universe()
-    out, fails = {}, 0
-    for s in syms:
-        try:
-            out[s] = fetch_symbol(s, '1d', tries=2)
-        except Exception:
-            fails += 1
-        time.sleep(0.1)
+    syms += player_extra(syms)
+    out = fetch_many(syms, '1d')
     if len(out) < len(syms) * 0.8:
         print(f'只抓到 {len(out)}/{len(syms)} 个标的，不更新 quotes.json')
         return 1
@@ -270,6 +283,10 @@ def main():
         L += ['', '## 抓取失败', *[f'- {f}' for f in fails]]
     (DATA / 'snapshot.md').write_text('\n'.join(L) + '\n', encoding='utf-8')
     tradable = {s: out[s] for s in syms if s in out}
+    # 玩家额外标的：不进快照，只取最近一个月日线，够追加 closes.json
+    extra = fetch_many(player_extra(syms), '1mo')
+    print(f'玩家额外标的 {len(extra)}/{len(player_extra(syms))}')
+    tradable.update(extra)
     write_quotes(tradable, state, now)
     if BENCHMARK in tradable:
         write_closes(tradable, now)

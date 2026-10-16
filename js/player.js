@@ -27,6 +27,26 @@
     ADBE: '奥多比', INTC: '英特尔', CSCO: '思科', QCOM: '高通', TXN: '德州仪器', IBM: 'IBM', DIS: '迪士尼', MCD: '麦当劳', CAT: '卡特彼勒', GS: '高盛',
     MS: '摩根士丹利', PLTR: 'Palantir', UBER: '优步', MU: '美光', NOW: 'ServiceNow', INTU: 'Intuit', ISRG: '直觉外科', AMAT: '应用材料', LRCX: '泛林集团', PANW: 'Palo Alto',
     SHOP: 'Shopify', COIN: 'Coinbase', BA: '波音', GE: '通用电气航天', RTX: 'RTX 雷神', NEE: '新纪元能源', LIN: '林德', TMO: '赛默飞', PFE: '辉瑞', T: 'AT&T',
+    // 玩家额外标的（tools/config.py PLAYER_EXTRA）
+    VOO: '标普500 ETF (Vanguard)', IVV: '标普500 ETF (iShares)', VTI: '全美股市 ETF', VT: '全球股市 ETF', VEA: '发达市场 ETF', VWO: '新兴市场 ETF', EFA: '欧澳远东 ETF',
+    EEM: '新兴市场 ETF (iShares)', FXI: '中国大盘 ETF', KWEB: '中概互联网 ETF', MCHI: '中国 ETF (MSCI)', EWJ: '日本 ETF', EWZ: '巴西 ETF', INDA: '印度 ETF', EWY: '韩国 ETF', EWT: '台湾 ETF',
+    VGT: '信息技术 ETF (Vanguard)', VUG: '大盘成长 ETF', VTV: '大盘价值 ETF', SCHD: '红利 ETF (嘉信)', JEPI: '摩根备兑收益 ETF', JEPQ: '纳指备兑收益 ETF', DGRO: '股息增长 ETF', VYM: '高股息 ETF',
+    RSP: '标普500 等权 ETF', MAGS: '七巨头 ETF', SOXX: '半导体 ETF (iShares)', XBI: '生物科技 ETF', IBB: '生物科技 ETF (iShares)', ARKK: '方舟创新 ETF', ITA: '航空航天军工 ETF', KRE: '地区银行 ETF',
+    XHB: '住宅建筑 ETF', ICLN: '清洁能源 ETF', TAN: '太阳能 ETF', LIT: '锂电池 ETF', URA: '铀矿 ETF', VNQ: '房地产信托 ETF', GDX: '金矿股 ETF', IAU: '黄金 ETF (iShares)', COPX: '铜矿股 ETF',
+    BND: '美国总体债券 ETF', AGG: '综合债券 ETF', LQD: '投资级公司债 ETF', HYG: '高收益债 ETF', TIP: '通胀保值债 ETF', SGOV: '0-3月国债 ETF', BIL: '1-3月国债 ETF',
+    IBIT: '比特币 ETF (贝莱德)', FBTC: '比特币 ETF (富达)', ETHA: '以太坊 ETF (贝莱德)',
+    QLD: '纳指100 两倍做多', TQQQ: '纳指100 三倍做多', SSO: '标普500 两倍做多', UPRO: '标普500 三倍做多', SOXL: '半导体 三倍做多', TECL: '科技 三倍做多', NVDL: '英伟达 两倍做多', TSLL: '特斯拉 两倍做多',
+    TSM: '台积电', ASML: '阿斯麦', ARM: 'Arm', SMCI: '超微电脑', MRVL: '迈威尔', ANET: 'Arista 网络', DELL: '戴尔', ADI: '亚德诺', KLAC: '科磊', SNPS: '新思科技', CDNS: '铿腾电子', NXPI: '恩智浦',
+    ON: '安森美', MCHP: '微芯科技', SNOW: 'Snowflake', CRWD: 'CrowdStrike', NET: 'Cloudflare', DDOG: 'Datadog', ZS: 'Zscaler', MDB: 'MongoDB', APP: 'AppLovin', TTD: 'Trade Desk', RBLX: 'Roblox',
+    SPOT: 'Spotify', PINS: 'Pinterest', SNAP: 'Snap', ACN: '埃森哲', SAP: 'SAP', SONY: '索尼', ABNB: '爱彼迎', BKNG: 'Booking', DASH: 'DoorDash', PYPL: 'PayPal', XYZ: 'Block',
+    HOOD: 'Robinhood', SOFI: 'SoFi', MSTR: 'Strategy (微策略)', AXP: '美国运通', C: '花旗', WFC: '富国银行', BLK: '贝莱德', SCHW: '嘉信理财', SPGI: '标普全球',
+    RIVN: 'Rivian', NIO: '蔚来', LI: '理想汽车', XPEV: '小鹏汽车', BABA: '阿里巴巴', PDD: '拼多多', JD: '京东', BIDU: '百度', TME: '腾讯音乐', MELI: '美客多', SE: 'Sea', CPNG: 'Coupang',
+    TM: '丰田', F: '福特', GM: '通用汽车', NKE: '耐克', SBUX: '星巴克', LULU: 'lululemon', TGT: '塔吉特', LOW: '劳氏', TJX: 'TJX', CMG: 'Chipotle', MAR: '万豪', CCL: '嘉年华邮轮',
+    RCL: '皇家加勒比', DAL: '达美航空', UAL: '联合航空', DKNG: 'DraftKings', EA: '艺电', TTWO: 'Take-Two', NVO: '诺和诺德', AZN: '阿斯利康', ABT: '雅培', DHR: '丹纳赫', AMGN: '安进',
+    GILD: '吉利德', BMY: '百时美施贵宝', VRTX: '福泰制药', REGN: '再生元', MRNA: 'Moderna', CVS: 'CVS 健康', HIMS: 'Hims & Hers', PM: '菲利普莫里斯', MO: '奥驰亚', CL: '高露洁',
+    MDLZ: '亿滋', TMUS: 'T-Mobile', VZ: '威瑞森', CMCSA: '康卡斯特', OXY: '西方石油', COP: '康菲石油', SLB: '斯伦贝谢', FCX: '自由港', NEM: '纽蒙特', DUK: '杜克能源', SO: '南方电力',
+    VST: 'Vistra', CEG: 'Constellation 能源', AMT: '美国铁塔', PLD: '安博', O: 'Realty Income', EQIX: 'Equinix', DE: '迪尔', HON: '霍尼韦尔', LMT: '洛克希德马丁', NOC: '诺斯罗普格鲁曼',
+    GD: '通用动力', UPS: 'UPS', FDX: '联邦快递', UNP: '联合太平洋', RKLB: 'Rocket Lab', ASTS: 'AST SpaceMobile', IONQ: 'IonQ', OKLO: 'Oklo',
   };
   const HOT = ['SPY', 'QQQ', 'NVDA', 'AAPL', 'MSFT', 'TSLA', 'GLD', 'SMH'];
 
@@ -385,7 +405,7 @@
     el.innerHTML = list.length ? list.map((s, i) => {
       const q = quote(s);
       return `<button class="res${i === 0 ? ' hi' : ''}" data-s="${s}"><b>${s}</b><span class="nm">${esc(cnName(s))} <small>${esc(q?.name || '')}</small></span><span class="num">${q ? money(q.price, 2) : ''} ${q?.chg != null ? `<small class="${cls(q.chg)}">${pct(q.chg)}</small>` : ''}</span></button>`;
-    }).join('') : '<div class="res none">观察池里没有找到。目前可以交易的是 AI 同一个观察池里的 ETF 和大盘股。</div>';
+    }).join('') : '<div class="res none">没有找到。目前可交易 AI 观察池加上约 170 个常见美股和 ETF（含杠杆做多 ETF，不含反向 ETF），共约 250 个。</div>';
     el.querySelectorAll('.res[data-s]').forEach(b => b.onclick = () => pick(b.dataset.s));
   }
   function pick(s) {

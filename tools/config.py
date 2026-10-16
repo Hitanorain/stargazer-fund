@@ -27,6 +27,26 @@ STOCKS = ['AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'META', 'TSLA', 'AVGO', 'BRK-
           'ADBE', 'INTC', 'CSCO', 'QCOM', 'TXN', 'IBM', 'DIS', 'MCD', 'CAT', 'GS',
           'MS', 'PLTR', 'UBER', 'MU', 'NOW', 'INTU', 'ISRG', 'AMAT', 'LRCX', 'PANW',
           'SHOP', 'COIN', 'BA', 'GE', 'RTX', 'NEE', 'LIN', 'TMO', 'PFE', 'T']
+# 玩家额外可交易的常见标的：只写进网页用的 data/quotes.json 和 data/closes.json，不进 AI 的快照。
+# 只收做多的品种（含杠杆做多 ETF），不收反向 ETF。
+PLAYER_EXTRA = [
+    # 宽基 / 海外 / 风格 / 主题 ETF
+    'VOO', 'IVV', 'VTI', 'VT', 'VEA', 'VWO', 'EFA', 'EEM', 'FXI', 'KWEB', 'MCHI', 'EWJ', 'EWZ', 'INDA', 'EWY', 'EWT',
+    'VGT', 'VUG', 'VTV', 'SCHD', 'JEPI', 'JEPQ', 'DGRO', 'VYM', 'RSP', 'MAGS', 'SOXX', 'XBI', 'IBB', 'ARKK', 'ITA', 'KRE',
+    'XHB', 'ICLN', 'TAN', 'LIT', 'URA', 'VNQ', 'GDX', 'IAU', 'COPX', 'BND', 'AGG', 'LQD', 'HYG', 'TIP', 'SGOV', 'BIL',
+    'IBIT', 'FBTC', 'ETHA',
+    # 杠杆做多 ETF
+    'QLD', 'TQQQ', 'SSO', 'UPRO', 'SOXL', 'TECL', 'NVDL', 'TSLL',
+    # 个股
+    'TSM', 'ASML', 'ARM', 'SMCI', 'MRVL', 'ANET', 'DELL', 'ADI', 'KLAC', 'SNPS', 'CDNS', 'NXPI', 'ON', 'MCHP',
+    'SNOW', 'CRWD', 'NET', 'DDOG', 'ZS', 'MDB', 'APP', 'TTD', 'RBLX', 'SPOT', 'PINS', 'SNAP', 'ACN', 'SAP', 'SONY',
+    'ABNB', 'BKNG', 'DASH', 'PYPL', 'XYZ', 'HOOD', 'SOFI', 'MSTR', 'AXP', 'C', 'WFC', 'BLK', 'SCHW', 'SPGI',
+    'RIVN', 'NIO', 'LI', 'XPEV', 'BABA', 'PDD', 'JD', 'BIDU', 'TME', 'MELI', 'SE', 'CPNG', 'TM', 'F', 'GM',
+    'NKE', 'SBUX', 'LULU', 'TGT', 'LOW', 'TJX', 'CMG', 'MAR', 'CCL', 'RCL', 'DAL', 'UAL', 'DKNG', 'EA', 'TTWO',
+    'NVO', 'AZN', 'ABT', 'DHR', 'AMGN', 'GILD', 'BMY', 'VRTX', 'REGN', 'MRNA', 'CVS', 'HIMS',
+    'PM', 'MO', 'CL', 'MDLZ', 'TMUS', 'VZ', 'CMCSA', 'OXY', 'COP', 'SLB', 'FCX', 'NEM', 'DUK', 'SO', 'VST', 'CEG',
+    'AMT', 'PLD', 'O', 'EQIX', 'DE', 'HON', 'LMT', 'NOC', 'GD', 'UPS', 'FDX', 'UNP', 'RKLB', 'ASTS', 'IONQ', 'OKLO']
+
 # 只看不交易的指标
 INDICATORS = {'^VIX': 'VIX 恐慌指数', '^TNX': '美国10年期国债收益率(×10)', 'DX-Y.NYB': '美元指数'}
 
