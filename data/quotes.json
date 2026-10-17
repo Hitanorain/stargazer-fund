@@ -1,8 +1,8 @@
-{"updated_at": "2026-10-16T17:54-04:00", "state": "after","q":{
+{"updated_at": "2026-10-16T20:36-04:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",763.25,771.79,1792180800],
 "QQQ":["Invesco QQQ Trust",709.8,728.0,1792180800],
 "IWM":["iShares Russell 2000 ETF",270.44,275.08,1792180800],
-"DIA":["State Street SPDR Dow Jones Industrial Average ETF Trust",519.1,521.066,1792180800],
+"DIA":["State Street SPDR Dow Jones Industrial Average ETF Trust",519.1,521.18,1792180800],
 "XLK":["State Street Technology Select Sector SPDR ETF",183.47,189.19,1792180800],
 "XLF":["State Street Financial Select Sector SPDR ETF",55.52,55.27,1792180800],
 "XLE":["State Street Energy Select Sector SPDR ETF",68.24,66.56,1792180800],
@@ -141,7 +141,7 @@
 "NVDL":["GraniteShares 2x Long NVDA Daily ETF",31.98,32.98,1792180801],
 "TSLL":["Direxion Daily TSLA Bull 2X Shares",8.91,9.32,1792180801],
 "TSM":["Taiwan Semiconductor Manufacturing Company Limited",412.61,422.25,1792180802],
-"ASML":["ASML Holding N.V.",1641.52,1657.44,1792180801],
+"ASML":["ASML Holding N.V.",1641.52,1657.4399,1792180801],
 "ARM":["Arm Holdings plc",227.8,244.79,1792180802],
 "SMCI":["Super Micro Computer, Inc.",31.63,35.09,1792180801],
 "MRVL":["Marvell Technology, Inc.",227.83,241.24,1792180802],
