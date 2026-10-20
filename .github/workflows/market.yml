@@ -1,10 +1,17 @@
 # 行情快照（盘中，供 AI 决策）+ 收盘结算（成交挂单、记净值）+ 盘中每 30 分钟刷新网页用的最新价
 name: market
 on:
+  # GitHub 的定时触发在整点 / 半点高峰常常延迟几个小时甚至直接丢掉，所以都避开整点，而且关键任务排了多次：
+  # 只要有一次按时跑成，15:30 左右的 AI 决策就能拿到当天快照；结算是幂等的，多跑几次也没关系。
   schedule:
-    - cron: '45 18 * * 1-5'       # 盘中快照：美东 14:45（夏令时）/ 13:45（冬令时）
-    - cron: '20 22 * * 1-5'       # 收盘结算：美东 18:20 / 17:20
-    - cron: '*/30 13-21 * * 1-5'  # 轻量刷新 data/quotes.json（覆盖夏令时、冬令时的交易时段；价格没变不提交）
+    - cron: '13 17 * * 1-5'       # 盘中快照：美东 13:13（夏令时）/ 12:13（冬令时）
+    - cron: '47 17 * * 1-5'       # 盘中快照（备份）：美东 13:47 / 12:47
+    - cron: '19 18 * * 1-5'       # 盘中快照（备份）：美东 14:19 / 13:19
+    - cron: '53 18 * * 1-5'       # 盘中快照（备份）：美东 14:53 / 13:53
+    - cron: '23 22 * * 1-5'       # 收盘结算：美东 18:23 / 17:23
+    - cron: '37 23 * * 1-5'       # 收盘结算（备份）：美东 19:37 / 18:37
+    - cron: '13 1 * * 2-6'        # 收盘结算（备份）：美东 21:13 / 20:13（UTC 已是第二天）
+    - cron: '11,41 13-21 * * 1-5' # 轻量刷新 data/quotes.json（覆盖夏令时、冬令时的交易时段；价格没变不提交）
   workflow_dispatch:
     inputs:
       mode:
@@ -16,12 +23,12 @@ permissions:
   contents: write
 # 两种任务分开排队：盘中刷新再频繁也不会把排队中的快照 / 结算挤掉（同组里新排队的会取消旧的排队）
 concurrency:
-  group: market-${{ (github.event.schedule == '*/30 13-21 * * 1-5' || inputs.mode == 'quotes') && 'quotes' || 'full' }}
+  group: market-${{ (github.event.schedule == '11,41 13-21 * * 1-5' || inputs.mode == 'quotes') && 'quotes' || 'full' }}
 jobs:
   run:
     runs-on: ubuntu-latest
     env:
-      QUOTES_ONLY: ${{ github.event.schedule == '*/30 13-21 * * 1-5' || inputs.mode == 'quotes' }}
+      QUOTES_ONLY: ${{ github.event.schedule == '11,41 13-21 * * 1-5' || inputs.mode == 'quotes' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

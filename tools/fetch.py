@@ -33,10 +33,14 @@ def fetch_symbol(sym, rng='2y', tries=3, timeout=12):
         d = to_et(t).date().isoformat()
         rows.append([d, round(q['open'][i] or c, 4), round(q['high'][i] or c, 4), round(q['low'][i] or c, 4), round(c, 4), int(q['volume'][i] or 0)])
     # 交易时段内，最后一根是"今天到目前为止"
+    # Yahoo 的长周期日线偶尔滞后一两天（最新交易日还没有K线），用 meta 里的最新成交补上这一根，免得快照回退到旧交易日
+    t, px = meta.get('regularMarketTime'), meta.get('regularMarketPrice')
+    if t and px and rng != '1d' and (not rows or to_et(t).date().isoformat() > rows[-1][0]):
+        rows.append([to_et(t).date().isoformat(), round(px, 4), round(meta.get('regularMarketDayHigh') or px, 4),
+                     round(meta.get('regularMarketDayLow') or px, 4), round(px, 4), int(meta.get('regularMarketVolume') or 0)])
     # 分红：按除息日记录每股金额
     divs = {to_et(int(v['date'])).date().isoformat(): v['amount'] for v in (res.get('events') or {}).get('dividends', {}).values()}
     # 前收：最近一根K线就是最新价所在的交易日时，取它前一根；range=1d 时 Yahoo 直接给 chartPreviousClose
-    t = meta.get('regularMarketTime')
     if rng == '1d' or not rows:
         prev = meta.get('chartPreviousClose')
     elif t and rows[-1][0] == to_et(t).date().isoformat():
@@ -253,6 +257,14 @@ def main():
     if len(out) < len(syms) * 0.8:
         print(f'只抓到 {len(out)}/{len(syms)} 个标的，保留原快照不覆盖。失败示例：{fails[:3]}')
         return 1
+    try:
+        old_session = json.loads((DATA / 'snapshot.json').read_text(encoding='utf-8')).get('session_date') or ''
+    except Exception:
+        old_session = ''
+    if not spy_last or spy_last < old_session:
+        # 抓到的数据比仓库里的快照还旧（Yahoo 偶尔返回过期数据）：不覆盖快照，也不写 quotes / closes
+        print(f'抓到的交易日 {spy_last} 早于现有快照的 {old_session}，数据过期，保留原快照不覆盖')
+        return 0
     snap = {
         'generated_at': now.isoformat(timespec='minutes'), 'market_state': state, 'session_date': spy_last,
         'indicators': {k: summarize(out[k]) for k in INDICATORS if k in out},
