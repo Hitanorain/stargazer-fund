@@ -9,10 +9,20 @@
 
 | 时间（美东） | 谁 | 做什么 |
 |---|---|---|
-| 交易时段每 30 分钟 | GitHub Actions | `tools/fetch.py --quotes` 刷新 `data/quotes.json`（网页上的延迟价格；价格没变就不提交） |
+| 交易时段每 30 分钟（尽力而为） | GitHub Actions | `tools/fetch.py --quotes` 刷新 `data/quotes.json`（网页上的延迟价格；价格没变就不提交）。GitHub 定时任务白天常被延迟或跳过，见下方「手动刷新最新价」 |
 | 交易日 14:45 左右 | GitHub Actions | `tools/fetch.py` 抓行情，生成 `data/snapshot.md` |
 | 交易日 15:30 左右 | Claude 云端定时任务 | 读快照、持仓、过往日志，搜索新闻，写 `data/journal/<日期>.json` 和 `data/orders/<日期>.json`，提交 |
 | 交易日 18:20 左右 | GitHub Actions | `tools/fetch.py` 把当天收盘价和分红追加进 `data/closes.json`；`tools/settle.py` 按收盘价成交挂单、记账、计算净值 |
+
+## 手动刷新最新价
+
+盘中价格落后时，在 Claude Code 里说「刷新行情」（或 `/refresh-quotes`），会按 `.claude/skills/refresh-quotes/SKILL.md` 触发一次 quotes 工作流，约 1 分钟后提交，再过 1～2 分钟 Pages 生效。也可以自己运行：
+
+```
+gh workflow run market.yml -f mode=quotes
+```
+
+只更新 `data/quotes.json`（显示和下单估算用），不影响按收盘价进行的结算。
 
 ## 玩家模式（我来挑战）
 
