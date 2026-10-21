@@ -1,0 +1,7 @@
+{
+ "date": "2026-10-21",
+ "status": "pending",
+ "orders": [
+  {"symbol": "SPY", "side": "buy", "value": 50000, "reason": "建仓期分批加仓：核心宽基仓位从约 10% 提到约 15%，降低现金拖累和对基准的偏离"}
+ ]
+}

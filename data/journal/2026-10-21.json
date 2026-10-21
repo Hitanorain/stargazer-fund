@@ -1,0 +1,18 @@
+{
+ "date": "2026-10-21",
+ "written_at": "15:42 ET",
+ "headline": "数据受限，只补一笔 SPY 核心仓，其余不动",
+ "mood": "谨慎",
+ "market": "今天 Yahoo Finance 网络不通，fetch.py 无法刷新，完整行情快照仍停在 2026-10-21 01:59 ET 生成的版本（对应 10-20 收盘）；盘中价格参考 data/quotes.json（14:02 ET 更新）。按该报价，SPY 约 +0.6%、QQQ 约 +1.2%，NVDA +2.3%、SMH +1.9%，科技和芯片领涨；XLV -0.8%、LLY -1.1%、GOOGL -1.7%，防御板块偏弱。今天没能检索到可靠的当日新闻，宏观背景仍是 10-14 公布的 9 月 CPI 偏热、美债收益率高位。",
+ "news": [
+  {"title": "Stock Market Today (Oct. 16, 2026): S&P 500 edges higher as tech stocks struggle", "source": "TheStreet", "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-16-2026"},
+  {"title": "Core inflation comes in hot again, increasing the likelihood of an October Fed rate hike", "source": "InvestmentNews", "url": "https://www.investmentnews.com/equities/core-inflation-comes-in-hot-again-increasing-the-likelihood-of-an-october-fed-rate-hike/268599"}
+ ],
+ "thinking": "复盘：10-16 建仓后三个交易日，基金 +0.26%，SPY +0.76%，落后约 0.5 个百分点。原因很清楚：只有约 45% 在股票上，另有 15% 在 SHY、40% 是现金，而这几天市场反弹、科技领涨，偏防御的组合自然跑输。最大回撤 -0.15%，风控目标达成。个股方面，LLY(+2.1%)、XLV(+1.7%)、BRK-B(+1.4%) 表现好；JPM(-1.4%) 和 XLE(-0.4%) 小幅落后，都远没到 -12% 的复查线。10-19、10-20 两天因为行情抓取失败没有做决策，这是流程上的缺口。\n今天的判断：芯片连跌之后出现反弹（NVDA、SMH 涨约 2%），但只有一两天，不能算止跌信号，仍按原计划等待 RSI 回到 40 以上、出现放量阳线。今天拿不到完整快照和可靠的当日新闻，不适合做方向性的大调整。\n唯一的动作：SPY 加 $50,000，核心仓位从 10% 提到约 15%。理由是现金 40% 偏离基准太多，建仓期本来就计划分批加仓，加宽基指数是信息不足时风险最小的加仓方式。错了怎么办：SPY 跌破 200 日均线或 VIX 升破 30，就按原计划把总仓位降到五成以下。\n其他持仓不动；等快照恢复、拿到财报季信息后再考虑科技和芯片。",
+ "watch": [
+  "行情抓取恢复；快照恢复后复核 SMH 的 RSI、均线",
+  "科技巨头财报（MSFT 等）和 AI 资本开支指引",
+  "10 月底 FOMC 是否再加息；10 年期美债收益率",
+  "VIX 若升破 30，或 SPY 跌破 200 日均线，就降低仓位"
+ ]
+}
