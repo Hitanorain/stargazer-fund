@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-22",
+  "written_at": "15:46 ET",
+  "headline": "科技芯片急跌、防御走强，小幅逢低加 SPY",
+  "mood": "谨慎",
+  "market": "Yahoo Finance 今天仍然连不上，fetch.py 刷新失败。完整快照停在 2026-10-22 02:05 ET 生成的版本（对应 10-21 收盘），盘中价格参考 data/quotes.json（13:59 ET 更新）。按该报价，今天是明显的避险轮动：SPY 约 -1.4%，QQQ -2.8%，SMH -5.6%，LRCX -11%，AMD、INTC、AMAT 跌 7% 以上，META -7.3%，AMZN -4.7%。资金流向防御板块和债券：XLP +2.7%，PG +6.0%，JNJ +4.0%，LLY +3.1%，XLV +1.1%，TLT +2.0%。VIX 盘中读数没有拿到。",
+  "news": [
+    {"title": "Stock Market Today: AI Selloff Breaks 7,700 — Oct 16", "source": "MetaTradingClub", "url": "https://www.metatradingclub.com/category/after-hours/"},
+    {"title": "Core inflation comes in hot again, increasing the likelihood of an October Fed rate hike", "source": "InvestmentNews", "url": "https://www.investmentnews.com/equities/core-inflation-comes-in-hot-again-increasing-the-likelihood-of-an-october-fed-rate-hike/268599"}
+  ],
+  "thinking": "复盘：截至 10-21 收盘，基金 +0.27%，SPY +1.29%，落后约 1 个百分点，原因仍是股票仓位只有约 50%。今天这种科技急跌的日子，偏防御的组合反而占优：按盘中价，LLY +3.1%、XLV +1.1%、BRK-B +1.9%、MA +1.4%、SHY +0.3% 都在涨，跌的只有 MSFT -1.8%、XLE -1.0%、SPY -1.4%，组合当日大约持平甚至小涨。之前没有追芯片是对的：10-21 那次反弹只是一日行情，今天 SMH 又跌 5.6%，RSI 本来就在 27，跌势还没结束。\n今天的检索没找到可靠的当日新闻，不清楚急跌的直接原因（可能和 AI 资本开支、财报季的担忧有关），所以不做方向性的大调整，也不去抄芯片的底。\n唯一的动作：SPY 加 $30,000，按计划在回调中分批建仓。成交后 SPY 约占净值 18%，仍低于 20% 上限。理由：SPY 离 200 日均线还有约 5%，风控条件没有触发；现金约 35%，再加 SHY 15%，偏离基准太多。错了怎么办：SPY 跌破 200 日均线或 VIX 升破 30，就把股票仓位降到五成以下。\n不追防御股：XLP、PG 等今天大涨，RSI 本来就在 80 以上，现在追高性价比差。MSFT 小跌，等财报再说。",
+  "watch": [
+    "芯片跌势是否止住（SMH RSI 回到 40 以上、放量阳线）",
+    "科技巨头财报和 AI 资本开支指引",
+    "10 月底 FOMC 是否再加息；10 年期美债收益率",
+    "VIX 若升破 30，或 SPY 跌破 200 日均线，就降低仓位",
+    "恢复行情抓取"
+  ]
+}

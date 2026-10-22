@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-22",
+  "status": "pending",
+  "orders": [
+    {"symbol": "SPY", "side": "buy", "value": 30000, "reason": "科技急跌拖累大盘约 1.4%，在建仓期的回调中分批加仓宽基；成交后 SPY 约 18%，低于 20% 上限"}
+  ]
+}
