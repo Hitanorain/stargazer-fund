@@ -1,4 +1,4 @@
-{"updated_at": "2026-10-26T17:38-04:00", "state": "after","q":{
+{"updated_at": "2026-10-26T19:22-04:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",765.37,759.97,1793044800],
 "QQQ":["Invesco QQQ Trust",712.2,704.4,1793044800],
 "IWM":["iShares Russell 2000 ETF",276.99,275.75,1793044800],
@@ -21,7 +21,7 @@
 "GLD":["SPDR Gold Shares",367.82,366.61,1793044800],
 "SLV":["iShares Silver Trust",48.66,48.72,1793044800],
 "USO":["United States Oil Fund, LP",166.23,169.53,1793044800],
-"AAPL":["Apple Inc.",343.91,347.73,1793044801],
+"AAPL":["Apple Inc.",343.91,347.725,1793044801],
 "MSFT":["Microsoft Corporation",532.6,524.51,1793044801],
 "NVDA":["NVIDIA Corporation",216.0,210.96,1793044800],
 "AMZN":["Amazon.com, Inc.",249.09,248.0,1793044801],
@@ -59,7 +59,7 @@
 "IBM":["International Business Machines Corporation",253.44,253.56,1793044803],
 "DIS":["The Walt Disney Company",110.4,112.52,1793044903],
 "MCD":["McDonald's Corporation",250.83,248.46,1793044802],
-"CAT":["Caterpillar Inc.",692.13,687.0,1793044802],
+"CAT":["Caterpillar Inc.",692.13,685.37,1793044802],
 "GS":["The Goldman Sachs Group, Inc.",893.28,875.68,1793044803],
 "MS":["Morgan Stanley",183.49,179.49,1793044972],
 "PLTR":["Palantir Technologies Inc.",198.84,196.75,1793044800],
@@ -211,7 +211,7 @@
 "DAL":["Delta Air Lines, Inc.",79.16,76.78,1793044802],
 "UAL":["United Airlines Holdings, Inc.",100.69,97.93,1793044800],
 "DKNG":["DraftKings Inc.",21.22,20.91,1793044801],
-"EA":["Electronic Arts Inc",209.7,null,1785873600],
+"EA":["Electronic Arts Inc",209.7,0.0,1785873600],
 "TTWO":["Take-Two Interactive Software, Inc.",203.35,203.69,1793044800],
 "NVO":["Novo Nordisk A/S",39.13,39.05,1793044803],
 "AZN":["AstraZeneca PLC",172.06,171.49,1793044802],
