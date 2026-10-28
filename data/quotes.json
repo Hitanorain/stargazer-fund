@@ -1,4 +1,4 @@
-{"updated_at": "2026-10-27T18:57-04:00", "state": "after","q":{
+{"updated_at": "2026-10-27T21:28-04:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",769.66,765.37,1793131200],
 "QQQ":["Invesco QQQ Trust",721.25,712.2,1793131200],
 "IWM":["iShares Russell 2000 ETF",280.18,276.99,1793131200],
@@ -141,7 +141,7 @@
 "NVDL":["GraniteShares 2x Long NVDA Daily ETF",32.92,32.37,1793131200],
 "TSLL":["Direxion Daily TSLA Bull 2X Shares",11.63,10.76,1793131200],
 "TSM":["Taiwan Semiconductor Manufacturing Company Limited",436.87,424.37,1793131202],
-"ASML":["ASML Holding N.V.",1635.57,1588.7924,1793131201],
+"ASML":["ASML Holding N.V.",1635.57,1590.9,1793131201],
 "ARM":["Arm Holdings plc",226.6,223.35,1793131201],
 "SMCI":["Super Micro Computer, Inc.",35.09,32.69,1793131200],
 "MRVL":["Marvell Technology, Inc.",243.57,233.78,1793131201],
@@ -211,7 +211,7 @@
 "DAL":["Delta Air Lines, Inc.",81.45,79.16,1793131202],
 "UAL":["United Airlines Holdings, Inc.",104.71,100.69,1793131200],
 "DKNG":["DraftKings Inc.",20.78,21.22,1793131201],
-"EA":["Electronic Arts Inc",209.7,0.0,1785873600],
+"EA":["Electronic Arts Inc",209.7,null,1785873600],
 "TTWO":["Take-Two Interactive Software, Inc.",201.28,203.35,1793131200],
 "NVO":["Novo Nordisk A/S",38.67,39.13,1793131202],
 "AZN":["AstraZeneca PLC",170.08,172.06,1793131202],
