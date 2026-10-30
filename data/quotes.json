@@ -1,4 +1,4 @@
-{"updated_at": "2026-10-29T19:18-04:00", "state": "after","q":{
+{"updated_at": "2026-10-29T22:00-04:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",769.36,772.31,1793304000],
 "QQQ":["Invesco QQQ Trust",715.34,725.61,1793304000],
 "IWM":["iShares Russell 2000 ETF",284.01,281.29,1793304000],
@@ -188,7 +188,7 @@
 "LI":["Li Auto Inc.",11.14,11.39,1793304001],
 "XPEV":["XPeng Inc.",9.18,9.32,1793304219],
 "BABA":["Alibaba Group Holding Limited",99.54,100.96,1793304230],
-"PDD":["PDD Holdings Inc.",79.28,77.465,1793304000],
+"PDD":["PDD Holdings Inc.",79.28,77.47,1793304000],
 "JD":["JD.com, Inc.",25.63,25.45,1793304001],
 "BIDU":["Baidu, Inc.",78.65,79.5,1793304001],
 "TME":["Tencent Music Entertainment Group",8.37,8.33,1793304002],
@@ -211,7 +211,7 @@
 "DAL":["Delta Air Lines, Inc.",81.64,80.35,1793304002],
 "UAL":["United Airlines Holdings, Inc.",105.21,103.43,1793304000],
 "DKNG":["DraftKings Inc.",20.72,20.3,1793304001],
-"EA":["Electronic Arts Inc",209.7,0.0,1785873600],
+"EA":["Electronic Arts Inc",209.7,null,1785873600],
 "TTWO":["Take-Two Interactive Software, Inc.",193.39,195.29,1793304000],
 "NVO":["Novo Nordisk A/S",39.14,38.29,1793304002],
 "AZN":["AstraZeneca PLC",174.4,169.51,1793304003],
