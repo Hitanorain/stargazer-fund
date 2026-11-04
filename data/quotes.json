@@ -1,4 +1,4 @@
-{"updated_at": "2026-11-03T17:17-05:00", "state": "after","q":{
+{"updated_at": "2026-11-03T19:37-05:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",754.35,752.1,1793739600],
 "QQQ":["Invesco QQQ Trust",685.28,681.09,1793739601],
 "IWM":["iShares Russell 2000 ETF",279.79,279.14,1793739600],
@@ -211,7 +211,7 @@
 "DAL":["Delta Air Lines, Inc.",83.28,83.42,1793739602],
 "UAL":["United Airlines Holdings, Inc.",107.21,109.24,1793739600],
 "DKNG":["DraftKings Inc.",21.93,21.81,1793739601],
-"EA":["Electronic Arts Inc",209.7,null,1785873600],
+"EA":["Electronic Arts Inc",209.7,0.0,1785873600],
 "TTWO":["Take-Two Interactive Software, Inc.",194.99,192.1,1793739600],
 "NVO":["Novo Nordisk A/S",40.19,40.45,1793739730],
 "AZN":["AstraZeneca PLC",183.88,186.58,1793739602],
