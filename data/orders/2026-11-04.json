@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-04",
+  "status": "pending",
+  "orders": [
+    {"symbol": "XLE", "side": "sell", "shares": "all", "reason": "伊朗外交解决预期下原油单日跌约9%，XLE跌破50日均线，持有逻辑（油价溢价/通胀对冲）失效，按既定规则清仓"},
+    {"symbol": "QQQ", "side": "buy", "value": 40000, "reason": "选举不确定性落地、油价和利率回落、SPY收复50日线，按计划第一批加仓科技；用QQQ而非追涨个股或抄底芯片，跌回SPY 755以下撤回"}
+  ]
+}
