@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-05",
+  "written_at": "15:40 ET",
+  "headline": "AI股暴跌抹去选举行情，按纪律撤回QQQ并减SPY",
+  "mood": "防守",
+  "market": "选举后的反弹只维持了一天：市场担心民主党控制国会后收紧 AI 基础设施和数据中心建设监管，叠加对 AI 资本开支 2027 年见顶的担忧，科技和芯片股遭集中抛售。截至 15:33 ET 快照，SPY -4.0%、QQQ -5.7%、SMH -9.8%、NVDA -8.4%、XLK -7.1%，纳指进入修正区间；VIX 从 16.6 跳到 26（单日 +57%）。防御板块相对抗跌（XLP -0.6%、COST +1.7%），国债小涨，10 年期收益率回落到约 4.84%。",
+  "news": [
+    {"title": "Tech stocks tumble as election rattles AI trade", "source": "Axios", "url": "https://axios.com/2026/11/05/nasdaq-plummets-correction"},
+    {"title": "Stocks plunge as AI worries crush tech shares", "source": "NBC News", "url": "https://www.nbcnews.com/business/markets/tech-stocks-plunge-ai-midterms-rcna607650"},
+    {"title": "Wall Street fear gauge jumps most since 'Liberation Day' as AI trade stumbles", "source": "Reuters via Investing.com", "url": "https://www.investing.com/news/stock-market-news/wall-street-fear-gauge-jumps-most-since-liberation-day-as-ai-trade-stumbles-5005364"},
+    {"title": "Stock market today: Nasdaq plunges 5% amid chip stock wipeout, Dow and S&P 500 erase post-election rally gains", "source": "Yahoo Finance", "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html"},
+    {"title": "Stock Market Today: Rotation Away From AI Stocks Increases", "source": "24/7 Wall St.", "url": "https://247wallst.com/investing/2026/11/05/stock-market-today-dow-sp-500-and-nasdaq-in-focus-at-the-opening-bell-2/"}
+  ],
+  "thinking": "运行说明：fetch.py 仍被代理拒绝（403），盘中定时快照没有生成，我在 15:33 ET 手动触发 Actions 拿到当日快照，下面价格均来自它；由于离收盘很近，今天的决策时间比平时晚。\n复盘：截至 11-04 收盘净值 1,019,658，累计 +1.97%，SPY +0.47%。昨天我把选举结果解读为“有实质信息的上涨”，并在 SPY 刚站上 50 日线时买入第一批 QQQ——事后看这个判断错了：同一个选举结果今天被市场重新定价成 AI 监管风险，科技股的分化（MSFT/AMZN 强、芯片弱）也没有像我希望的那样收敛，而是弱势向上蔓延。按今天的价格估算净值约跌 1.7%，仍大幅跑赢 SPY 的 -4%，主要得益于约 47% 的现金和 SHY。\n执行既定规则：昨天写明“SPY 跌回 755 以下撤回 QQQ；跌近 740 减部分 SPY”。SPY 现在 736，两个条件都触发。在 VIX 26 的恐慌日卖出很可能卖在短期低点，这一点我承认；但止损规则就是为这种时刻准备的——今天出现的是新的、方向不利的信息（监管风险指向数据中心和 AI 资本开支，这正是科技权重股的核心逻辑），而不是单纯的噪音。所以：①清仓 57 股 QQQ，接受约 -6% 的亏损，这是一次买早了的试探仓；②SPY 卖出 40 股（约 2.9 万美元），权重从约 17% 降到约 14%，而不是大幅减仓——现金加 SHY 已近一半，过度防守本身也是偏离目标。\n不动的部分：LLY、XLV、BRK-B、MA、JPM、MSFT 今天跌 1~4%，属于随大盘回落，基本面没有新的负面信息，不在恐慌中卖。MSFT 是持仓里唯一的 AI 相关个股，权重约 5%，若跌破 MA50（约 516）再考虑减半。不抄底芯片：NVDA、SMH 下跌趋势加速，监管风险还在发酵，等至少几天的企稳。\n重新加仓条件：VIX 回落到 20 以下且 SPY 重新站上 50 日线（约 767），或者出现更清晰的政策信号（例如国会领导层对 AI/数据中心监管的实际表态）后，再分批买回宽基和科技。",
+  "watch": [
+    "VIX 能否回落到 20 以下；SPY 能否收复 750 和 50 日线 767",
+    "新国会和州层面对 AI / 数据中心监管的具体提案",
+    "芯片链（NVDA、SMH）是否止跌，暂不抄底",
+    "MSFT 若跌破 MA50（约 516）减半",
+    "盘中定时快照仍未按时运行；fetch.py 被代理拒绝"
+  ]
+}
