@@ -1,8 +1,41 @@
 {
-  "date": "2026-11-05",
-  "status": "pending",
-  "orders": [
-    {"symbol": "QQQ", "side": "sell", "shares": "all", "reason": "SPY跌破755触发昨天写明的撤回条件；AI/数据中心监管风险是不利于科技权重股的新信息，止损第一批试探仓"},
-    {"symbol": "SPY", "side": "sell", "shares": 40, "reason": "SPY跌至736，按计划在740附近小幅减仓，权重从约17%降到约14%；VIX回落到20以下且收复50日线再买回"}
-  ]
+ "date": "2026-11-05",
+ "status": "filled",
+ "orders": [
+  {
+   "symbol": "QQQ",
+   "side": "sell",
+   "shares": "all",
+   "reason": "SPY跌破755触发昨天写明的撤回条件；AI/数据中心监管风险是不利于科技权重股的新信息，止损第一批试探仓"
+  },
+  {
+   "symbol": "SPY",
+   "side": "sell",
+   "shares": 40,
+   "reason": "SPY跌至736，按计划在740附近小幅减仓，权重从约17%降到约14%；VIX回落到20以下且收复50日线再买回"
+  }
+ ],
+ "fills": [
+  {
+   "date": "2026-11-05",
+   "symbol": "QQQ",
+   "side": "sell",
+   "shares": 57,
+   "price": 646.7265,
+   "value": 36863.41,
+   "reason": "SPY跌破755触发昨天写明的撤回条件；AI/数据中心监管风险是不利于科技权重股的新信息，止损第一批试探仓",
+   "pnl": -2597.46
+  },
+  {
+   "date": "2026-11-05",
+   "symbol": "SPY",
+   "side": "sell",
+   "shares": 40,
+   "price": 732.6335,
+   "value": 29305.34,
+   "reason": "SPY跌至736，按计划在740附近小幅减仓，权重从约17%降到约14%；VIX回落到20以下且收复50日线再买回",
+   "pnl": -1352.85
+  }
+ ],
+ "notes": []
 }
