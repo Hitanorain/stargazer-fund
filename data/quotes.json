@@ -1,4 +1,4 @@
-{"updated_at": "2026-11-05T20:09-05:00", "state": "after","q":{
+{"updated_at": "2026-11-05T21:33-05:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",733.0,766.81,1793912400],
 "QQQ":["Invesco QQQ Trust",647.05,691.95,1793912401],
 "IWM":["iShares Russell 2000 ETF",270.98,284.02,1793912400],
@@ -107,7 +107,7 @@
 "VYM":["Vanguard High Dividend Yield Index Fund ETF Shares",159.8,165.25,1793912400],
 "RSP":["Invesco S&P 500 Equal Weight ETF",216.87,223.33,1793912400],
 "MAGS":["Roundhill Magnificent Seven ETF",66.85,70.28,1793912400],
-"SOXX":["iShares Semiconductor ETF",131.9,150.137,1793912400],
+"SOXX":["iShares Semiconductor ETF",131.9,150.1367,1793912400],
 "XBI":["State Street SPDR S&P Biotech ETF",148.4,159.1,1793912400],
 "IBB":["iShares Biotechnology ETF",209.99,221.13,1793912401],
 "ARKK":["ARK Innovation ETF",73.15,80.37,1793912400],
@@ -148,7 +148,7 @@
 "ANET":["Arista Networks, Inc.",159.16,178.48,1793912403],
 "DELL":["Dell Technologies Inc.",316.91,372.36,1793912658],
 "ADI":["Analog Devices, Inc.",361.01,406.24,1793912401],
-"KLAC":["KLA Corporation",129.8,149.756,1793912401],
+"KLAC":["KLA Corporation",129.8,149.79,1793912401],
 "SNPS":["Synopsys, Inc.",440.31,462.95,1793912401],
 "CDNS":["Cadence Design Systems, Inc.",311.43,329.52,1793912402],
 "NXPI":["NXP Semiconductors N.V.",244.43,265.01,1793912400],
@@ -211,7 +211,7 @@
 "DAL":["Delta Air Lines, Inc.",85.36,89.24,1793912402],
 "UAL":["United Airlines Holdings, Inc.",110.49,115.76,1793912401],
 "DKNG":["DraftKings Inc.",23.52,23.11,1793912401],
-"EA":["Electronic Arts Inc",209.7,0.0,1785873600],
+"EA":["Electronic Arts Inc",209.7,null,1785873600],
 "TTWO":["Take-Two Interactive Software, Inc.",213.36,208.9,1793912401],
 "NVO":["Novo Nordisk A/S",40.3,42.18,1793912402],
 "AZN":["AstraZeneca PLC",186.85,189.01,1793912402],
