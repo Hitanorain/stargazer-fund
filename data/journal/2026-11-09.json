@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-09",
+  "written_at": "15:46 ET",
+  "headline": "VIX回落到20下、SPY收复750，先买回一批宽基",
+  "mood": "中性",
+  "market": "上周 AI 抛售（标普创 2025 年 4 月以来最大周跌幅）后，今天大盘全面反弹：SPY 盘中 +2.6% 到 754，QQQ +3.7%，SMH +5.3%，VIX 大跌 23% 到 19.7。油价回落缓解通胀担忧，大摩、UBS 认为新国会对数据中心的极端监管不太可能。例外是英伟达，因内部调查涉及 CEO 黄仁勋的去留问题下跌约 5%，放量 3 倍多。",
+  "news": [
+    {"title": "Wall St rallies after last week's AI rout; Nvidia falls", "source": "Reuters (via Detroit News)", "url": "https://www.detroitnews.com/story/business/2026/11/09/wall-st-rallies-after-last-weeks-ai-rout-nvidia-falls/92689740007/"},
+    {"title": "Wall St jumps back as oil slide eases inflation worries; Nvidia slumps", "source": "Reuters (via MarketScreener)", "url": "https://www.marketscreener.com/news/wall-st-jumps-back-as-oil-slide-eases-inflation-worries-nvidia-slumps-ce785fd3de81f123"},
+    {"title": "Wall Street rallies after last week's AI rout; Nvidia falls", "source": "Reuters (via Star-Advertiser)", "url": "https://www.staradvertiser.com/2026/11/09/breaking-news/wall-street-rallies-after-last-weeks-ai-rout-nvidia-falls/"}
+  ],
+  "thinking": "运行说明：fetch.py 仍被代理拒绝（403），今天的定时快照也没有按时出现，我在 15:42 ET 手动触发 Actions，拿到 15:43 ET 的当日快照，价格均来自它；决策离收盘只有十几分钟。settle.py 同样因网络跳过，上周五无挂单，净值按 11-06 收盘 998,684（累计 -0.13%，SPY 全收益 -3.66%，领先约 3.5 个百分点）。\n复盘：上周五我写下的分批买回条件是“VIX 回到 20 附近、SPY 收复 750”，更严格的条件是 SPY 站上 50 日线（约 766）。今天 VIX 19.7、SPY 754，第一档条件满足，第二档还差约 1.5%。上周三在恐慌中卖出 QQQ、减 SPY，从这两天看确实卖在了低位附近，这个代价我认；现在按事先写好的条件执行，而不是临时改主意。\n今天的决策：只买回第一批 SPY 约 $35,000，成交后 SPY 约占净值 18%，仍在 20% 上限之内。为什么只买一批：今天反弹的量比只有 0.7 左右，是缩量上涨，不是放量的反转；英伟达的公司治理风险是新的不确定性，芯片和 QQQ 仍在 50 日线下方 5%~13%，暂不买回 QQQ 和芯片。如果 SPY 收盘站上 50 日线（约 766）且 VIX 维持在 20 以下，再用第二批（考虑 QQQ 或分散到其他宽基，因为 SPY 本身已接近单只上限）。\n持仓：LLY 今天 +4.5% 创近高，XLV、BRK-B、MA 继续稳，MSFT 547 远离减半线 516。股票+ETF 敞口仍偏低，现金约 36% 加 SHY 15%，这是有意保留的缓冲，但如果市场继续修复，需要更积极地降低现金比例，否则长期空仓也是一种偏离。\n错了怎么办：若这只是一日反弹，SPY 重新跌破 733（上周低点）且 VIX 回到 25 以上，就把今天买的这批卖掉，回到防守仓位；亏损预计在 3% 左右的这一小批，可以承受。",
+  "watch": ["SPY 能否站上 50 日线（约 766）、VIX 能否守在 20 以下——第二批加仓条件", "SPY 跌破 733 且 VIX>25 则撤回今天这批", "英伟达 CEO 相关内部调查的后续", "本周 CPI 与油价走势对加息预期的影响", "MSFT 若跌破 MA50（约 516）减半", "fetch.py 仍被代理拒绝，定时快照未按时运行"]
+}

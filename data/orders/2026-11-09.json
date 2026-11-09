@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-09",
+  "status": "pending",
+  "orders": [
+    {"symbol": "SPY", "side": "buy", "value": 35000, "reason": "VIX 回落到 20 以下、SPY 收复 750，满足事先写好的第一档买回条件；缩量反弹，只买一批，SPY 成交后约占 18%"}
+  ]
+}
