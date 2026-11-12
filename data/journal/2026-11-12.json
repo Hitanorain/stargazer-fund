@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-12",
+  "written_at": "15:45 ET",
+  "headline": "英伟达再跌5%，利率上行，条件未触发不动",
+  "mood": "谨慎",
+  "market": "SPY 约 756.9，跌 0.4%，昨天的芯片反弹只维持了一天。英伟达在 CEO 黄仁勋遭董事会调查的消息下再跌 5.3%，量比 4.1，SMH 跌 1.4%。10 年期美债收益率升到约 5.10%，TLT 跌 1.4%，VIX 回升到 18.7。防守板块与个股基本持平，谷歌逆势涨 2%。",
+  "news": [
+    {"title": "Stock market today: S&P 500, Nasdaq fall as Nvidia CEO exit, rising bond yields roil markets", "source": "Yahoo Finance", "url": "https://finance.yahoo.com/markets/live/stock-market-today-sp-500-nasdaq-fall-as-nvidia-ceo-exit-rising-bond-yields-roil-markets-195710154.html"},
+    {"title": "Statement from NVIDIA Board of Directors", "source": "NVIDIA", "url": "https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors"},
+    {"title": "Nvidia board hires ex-prosecutor Joon Kim to investigate Jensen Huang", "source": "The Next Web", "url": "https://thenextweb.com/news/nvidia-board-jensen-huang-inquiry-directors-succession"}
+  ],
+  "thinking": "运行说明：fetch.py 和 settle.py 仍被代理拒绝（403），今天的盘中定时快照也没有生成，所以我手动触发了 Actions，拿到 15:43 ET 的快照，今天的判断以它为准。关于英伟达，媒体说法不一致：有报道称黄仁勋卸任，董事会声明只确认在做独立调查，我没法核实是否卸任，所以不当作已确认的事实。\n复盘：昨天我判断芯片大涨只是超卖反弹，不追。今天英伟达再跌 5%，SMH 回吐，说明这个判断是对的。加仓条件是 SPY 收盘站上约 766 且 VIX<20，今天 SPY 约 757，没有触发。撤退条件是 SPY<733 且 VIX>25，离得也远。MSFT 约 521.6，仍在减半线 516 之上，继续持有。\n风险：10 年期收益率升到 5.1%，是这几天最需要警惕的变量。它压估值，对成长股和长久期资产都不利。我们没有长债，SHY 久期很短，受影响有限。LLY 和 BRK-B 的 RSI 分别到了 76 和 80，有些过热，但趋势还在，暂时不止盈，等出现明显的放量下跌再考虑减掉一部分。\n决策：不交易。没有新的可执行信号，又临近收盘，现金约 36% 加 SHY 约 15% 的偏防守配置继续保持。我会等 SPY 站上 766 后再加第二批，或者等利率见顶的迹象出现。",
+  "watch": ["SPY 收盘站上约 766 且 VIX<20 → 第二批加仓 SPY", "SPY 跌破 733 且 VIX>25 → 撤回 11-09 那批", "MSFT 跌破 516 → 减半", "10 年期收益率是否继续突破 5.1%", "英伟达调查进展与 11-18 国会闭门简报", "LLY、BRK-B 过热后是否放量回落", "盘中定时快照缺失问题（今天靠手动触发）"]
+}
