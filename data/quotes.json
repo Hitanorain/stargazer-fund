@@ -1,4 +1,4 @@
-{"updated_at": "2026-11-11T18:27-05:00", "state": "after","q":{
+{"updated_at": "2026-11-11T21:01-05:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",759.81,749.92,1794430801],
 "QQQ":["Invesco QQQ Trust",690.38,674.76,1794430800],
 "IWM":["iShares Russell 2000 ETF",283.09,280.58,1794430800],
@@ -23,7 +23,7 @@
 "USO":["United States Oil Fund, LP",141.47,141.45,1794430800],
 "AAPL":["Apple Inc.",355.63,348.51,1794430801],
 "MSFT":["Microsoft Corporation",521.125,533.16,1794430800],
-"NVDA":["NVIDIA Corporation",173.73,168.89,1794430800],
+"NVDA":["NVIDIA Corporation",173.73,168.796,1794430800],
 "AMZN":["Amazon.com, Inc.",266.17,270.87,1794430801],
 "GOOGL":["Alphabet Inc.",293.45,287.38,1794430800],
 "META":["Meta Platforms, Inc.",628.77,641.39,1794430801],
@@ -211,7 +211,7 @@
 "DAL":["Delta Air Lines, Inc.",91.32,92.2,1794430802],
 "UAL":["United Airlines Holdings, Inc.",118.37,120.56,1794430800],
 "DKNG":["DraftKings Inc.",19.64,19.36,1794430801],
-"EA":["Electronic Arts Inc",209.7,null,1785873600],
+"EA":["Electronic Arts Inc",209.7,0.0,1785873600],
 "TTWO":["Take-Two Interactive Software, Inc.",231.31,224.64,1794430800],
 "NVO":["Novo Nordisk A/S",41.09,40.7,1794430802],
 "AZN":["AstraZeneca PLC",185.48,186.76,1794430802],
