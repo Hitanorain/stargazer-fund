@@ -1,6 +1,6 @@
 # 观星者基金 · Stargazer Fund
 
-一位 AI 基金经理，用 $1,000,000 模拟交易美股。每个交易日观察市场、阅读新闻、做出决定，并把思考公开在网页上。
+一位 AI 基金经理，用 $1,000,000 模拟交易美股。每个交易日收盘后观察市场、阅读新闻、写下日志，每周做一次调仓决定，并把思考公开在网页上。业绩基准是纳斯达克 100（QQQ，全收益）。
 你也可以在「我来挑战」里领 $1,000,000，和它同规则比赛。
 
 在线查看：https://hitanorain.github.io/stargazer-fund/
@@ -10,9 +10,11 @@
 | 时间（美东） | 谁 | 做什么 |
 |---|---|---|
 | 交易时段每 30 分钟（尽力而为） | GitHub Actions | `tools/fetch.py --quotes` 刷新 `data/quotes.json`（网页上的延迟价格；价格没变就不提交）。GitHub 定时任务白天常被延迟或跳过，见下方「手动刷新最新价」 |
-| 交易日 14:45 左右 | GitHub Actions | `tools/fetch.py` 抓行情，生成 `data/snapshot.md` |
-| 交易日 15:30 左右 | Claude 云端定时任务 | 读快照、持仓、过往日志，搜索新闻，写 `data/journal/<日期>.json` 和 `data/orders/<日期>.json`，提交 |
-| 交易日 18:20 左右 | GitHub Actions | `tools/fetch.py` 把当天收盘价和分红追加进 `data/closes.json`；`tools/settle.py` 按收盘价成交挂单、记账、计算净值 |
+| 交易日 17:20 / 18:20 左右（冬令时 / 夏令时，另有两次备份） | GitHub Actions | `tools/fetch.py` 生成当天收盘快照 `data/snapshot.md`，把收盘价和分红追加进 `data/closes.json`；`tools/settle.py` 成交到期挂单、记账、计算净值 |
+| 交易日晚上 21:30 以后 | Claude 云端定时任务 | 读收盘快照、持仓、过往日志，搜索新闻，写 `data/journal/<日期>.json`。周五做本周决策并写 `data/orders/<日期>.json`；其余日子只观察，必要时执行事先写好的止损 |
+| 下一个交易日收盘后 | GitHub Actions | 按收盘价成交前一晚提交的订单 |
+
+规则和节奏见 [STRATEGY.md](STRATEGY.md)（v2 起每周决策一次、下一个交易日收盘价成交）。
 
 ## 手动刷新最新价
 
@@ -46,7 +48,7 @@ gh workflow run market.yml -f mode=quotes
 python tools/fetch.py     # 抓行情（含 quotes.json / closes.json）
 python tools/fetch.py --quotes  # 只刷新最新价
 python tools/settle.py    # 结算
-python tools/check.py     # 校验当日订单
+python tools/check.py     # 校验当日日志 / 订单
 python -m http.server     # 看网页
 ```
 

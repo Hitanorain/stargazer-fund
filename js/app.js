@@ -30,12 +30,13 @@
 
   function renderKpis(s, nav) {
     if (!s) { $('kpis').innerHTML = '<div class="kpi main"><div class="label">基金净值</div><div class="value">$1,000,000</div><div class="sub2">等待第一个交易日结算</div></div>'; return; }
-    const ex = s.ret - s.spy_ret;
+    const bn = s.benchmark || 'SPY', br = s.bench_ret ?? s.spy_ret;
+    const ex = s.ret - br;
     const k = (label, value, sub, c = '', main = '') => `<div class="kpi ${main}"><div class="label">${label}</div><div class="value ${c}">${value}</div><div class="sub2">${sub}</div></div>`;
     $('kpis').innerHTML =
       k('基金净值', money(s.nav), s.as_of ? `截至 ${s.as_of} 收盘 · 初始 ${money(s.initial)}` : '今天收盘后完成首次结算', '', 'main') +
-      k('累计收益', pct(s.ret), `同期 SPY ${pct(s.spy_ret)}`, cls(s.ret)) +
-      k('跑赢大盘', pct(ex), ex >= 0 ? '领先标普500' : '落后标普500', cls(ex)) +
+      k('累计收益', pct(s.ret), `同期 ${bn} ${pct(br)} · SPY ${pct(s.spy_ret)}`, cls(s.ret)) +
+      k(`相对 ${bn}`, pct(ex), `${ex >= 0 ? '领先' : '落后'}业绩基准 ${bn}（含分红）`, cls(ex)) +
       k('最近一日', pct(s.day_ret), `运行 ${s.days} 个交易日`, cls(s.day_ret)) +
       k('现金 / 回撤', `${(s.cash / s.nav * 100).toFixed(0)}%`, `最大回撤 ${pct(s.max_drawdown)}${s.dividends ? ' · 股息 ' + money(s.dividends) : ''}`);
   }
@@ -104,9 +105,10 @@
   const fmtK = v => v >= 1e6 ? '$' + (v / 1e6).toFixed(v % 1e6 === 0 ? 0 : 3).replace(/0+$/, '').replace(/\.$/, '') + 'M' : '$' + Math.round(v / 1000) + 'K';
 
   function ordersHtml(book) {
-    if (!book || !book.orders || !book.orders.length) return '<p class="status">今天没有下单，继续持有观察。</p>';
+    if (!book || !book.orders || !book.orders.length) return '<p class="status">没有下单，继续持有观察。</p>';
     const fills = Object.fromEntries((book.fills || []).map(f => [f.symbol + f.side, f]));
-    const st = { pending: '挂单中 · 按今天收盘价成交', filled: '已按收盘价成交', expired: '已作废' }[book.status] || book.status;
+    const next = book.fill === 'next_close', fd = book.fills?.[0]?.date;
+    const st = { pending: next ? '挂单中 · 按下一个交易日收盘价成交' : '挂单中 · 按当天收盘价成交', filled: `已按${fd && fd !== book.date ? ` ${fd} ` : ''}收盘价成交`, expired: '已作废' }[book.status] || book.status;
     return `<p class="status">${st}</p><div class="orders">` + book.orders.map(o => {
       const f = fills[o.symbol + o.side];
       const amt = f ? `${f.shares} 股 × ${money(f.price, 2)} = ${money(f.value)}` : o.value != null ? `约 ${money(o.value)}` : o.shares === 'all' ? '全部' : `${o.shares} 股`;
@@ -124,14 +126,14 @@
   function renderToday(pair, s) {
     if (!pair || !pair[0]) { $('today').innerHTML = '<div class="empty">第一篇交易日志即将出现</div>'; return; }
     const [j, book] = pair;
-    $('today').innerHTML = `<div class="date">${j.date} · ${esc(j.written_at || '')} · 最新交易日志</div>
+    $('today').innerHTML = `<div class="date">${j.date} · ${esc(j.written_at || '')} · ${j.kind === 'weekly' ? '本周决策' : '最新日志'}</div>
       <h2 class="headline">${esc(j.headline)}<span class="mood" data-m="${esc(j.mood)}">${esc(j.mood)}</span></h2>${entryBody(j, book)}`;
   }
   function renderJournal(list, navBy) {
     const items = list.filter(p => p[0]).slice(1);
     $('journal').innerHTML = items.length ? items.map(([j, book]) => {
       const r = navBy[j.date];
-      return `<details class="day"><summary><span class="d">${j.date}</span><span class="h">${esc(j.headline)} <span class="mood" data-m="${esc(j.mood)}">${esc(j.mood)}</span></span>${r != null ? `<span class="r ${cls(r)}">${pct(r)}</span>` : ''}</summary><div class="body">${entryBody(j, book)}</div></details>`;
+      return `<details class="day"><summary><span class="d">${j.date}</span><span class="h">${j.kind === 'weekly' ? '【周决策】' : ''}${esc(j.headline)} <span class="mood" data-m="${esc(j.mood)}">${esc(j.mood)}</span></span>${r != null ? `<span class="r ${cls(r)}">${pct(r)}</span>` : ''}</summary><div class="body">${entryBody(j, book)}</div></details>`;
     }).join('') : '<div class="empty">更早的日志会按日期排在这里</div>';
   }
 

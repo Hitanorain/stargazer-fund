@@ -5,7 +5,7 @@ python tools/fetch.py          抓观察池 + 持仓 + 自选，写 data/prices/
 python tools/fetch.py --quotes 盘中轻量刷新：只更新 data/quotes.json（价格没变就不写文件）
 """
 import json, time, math, sys, urllib.request, urllib.parse
-from config import DATA, ETFS, STOCKS, PLAYER_EXTRA, INDICATORS, BENCHMARK, INCEPTION, to_et
+from config import DATA, ETFS, STOCKS, PLAYER_EXTRA, INDICATORS, CALENDAR, INCEPTION, to_et
 UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126 Safari/537.36'}
 
 
@@ -180,7 +180,7 @@ def write_closes(out, now):
         old = json.loads(p.read_text(encoding='utf-8'))
     except Exception:
         old = {'dates': [], 'c': {}, 'div': {}}
-    spy = [r[0] for r in out[BENCHMARK]['rows']]
+    spy = [r[0] for r in out[CALENDAR]['rows']]
     base = [d for d in spy if d < INCEPTION][-1:]          # 起点前一个交易日，用作对齐基准
     dates = sorted(set(old['dates']) | {d for d in spy if d >= INCEPTION and session_done(d, now)} | set(base))
     cmap = {s: dict(zip(old['dates'], v)) for s, v in old['c'].items()}
@@ -204,7 +204,7 @@ def write_closes(out, now):
 def probe():
     """先探一下网络：连 Yahoo 都连不上（例如受限的云端沙箱），就立刻退出"""
     try:
-        fetch_symbol(BENCHMARK, '5d', tries=1, timeout=8)
+        fetch_symbol(CALENDAR, '5d', tries=1, timeout=8)
         return True
     except Exception as e:
         print(f'网络不通，无法访问 Yahoo Finance（{e}）。未改动任何文件，请使用仓库里已有的 data/snapshot.md。')
@@ -251,7 +251,7 @@ def main():
 
     now = to_et()
     state = market_state(now)
-    spy_last = out.get(BENCHMARK, {}).get('rows', [[None]])[-1][0]
+    spy_last = out.get(CALENDAR, {}).get('rows', [[None]])[-1][0]
     if state == 'open' and spy_last != now.date().isoformat():
         state = 'closed'   # 工作日但 SPY 没有今天的K线 → 节假日
     if len(out) < len(syms) * 0.8:
@@ -300,7 +300,7 @@ def main():
     print(f'玩家额外标的 {len(extra)}/{len(player_extra(syms))}')
     tradable.update(extra)
     write_quotes(tradable, state, now)
-    if BENCHMARK in tradable:
+    if CALENDAR in tradable:
         write_closes(tradable, now)
     print(f'fetched {len(out)} symbols, state={state}, session={spy_last}, failed={len(fails)}')
     return 0 if len(out) > len(syms) * 0.8 else 1
