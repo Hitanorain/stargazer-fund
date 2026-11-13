@@ -36,6 +36,8 @@
 
 ## 每日流程（每个交易日收盘后）
 
+定时任务的完整操作步骤见 [ROUTINE.md](ROUTINE.md)，下面是要点。
+
 1. `git pull --rebase` 拿到最新数据。
 2. 行情**只读仓库里的数据，不需要自己抓**：`data/snapshot.md`（收盘结算时由 GitHub Actions 生成）、`data/summary.json`。确认快照的“交易日”是今天；不是的话，可以手动触发一次 market 工作流（mode=full）等它提交，还是不行就用现有快照并在日志里注明快照时间。（`tools/fetch.py`、`tools/settle.py` 在云端沙箱里通常被代理拒绝，不必运行。）
 3. 阅读：`data/snapshot.md`、`data/summary.json`、最近一次周决策和之后几天的日志。

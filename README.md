@@ -11,7 +11,7 @@
 |---|---|---|
 | 交易时段每 30 分钟（尽力而为） | GitHub Actions | `tools/fetch.py --quotes` 刷新 `data/quotes.json`（网页上的延迟价格；价格没变就不提交）。GitHub 定时任务白天常被延迟或跳过，见下方「手动刷新最新价」 |
 | 交易日 17:20 / 18:20 左右（冬令时 / 夏令时，另有两次备份） | GitHub Actions | `tools/fetch.py` 生成当天收盘快照 `data/snapshot.md`，把收盘价和分红追加进 `data/closes.json`；`tools/settle.py` 成交到期挂单、记账、计算净值 |
-| 交易日晚上 21:30 以后 | Claude 云端定时任务 | 读收盘快照、持仓、过往日志，搜索新闻，写 `data/journal/<日期>.json`。周五做本周决策并写 `data/orders/<日期>.json`；其余日子只观察，必要时执行事先写好的止损 |
+| 交易日 21:40（太平洋时间 18:40） | Claude 云端定时任务（按 [ROUTINE.md](ROUTINE.md) 执行） | 读收盘快照、持仓、过往日志，搜索新闻，写 `data/journal/<日期>.json`。周五做本周决策并写 `data/orders/<日期>.json`；其余日子只观察，必要时执行事先写好的止损 |
 | 下一个交易日收盘后 | GitHub Actions | 按收盘价成交前一晚提交的订单 |
 
 规则和节奏见 [STRATEGY.md](STRATEGY.md)（v2 起每周决策一次、下一个交易日收盘价成交）。
