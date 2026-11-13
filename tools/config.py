@@ -14,8 +14,11 @@ INITIAL_CASH = 1_000_000.0
 SLIPPAGE = 0.0005          # 成交价相对收盘价的不利滑点（0.05%）
 COMMISSION = 0.0           # 美股主流券商零佣金
 MAX_WEIGHT = 0.20          # 单只标的上限（按下单时净值估算）
-MAX_ORDERS = 12            # 每日最多下单笔数
-BENCHMARK = 'SPY'
+MAX_ORDERS = 12            # 每周决策日最多下单笔数
+MAX_RISK_ORDERS = 3        # 非决策日最多下单笔数（只能卖出，执行事先写好的止损 / 减仓条件）
+DECISION_WEEKDAY = 4       # 每周决策日：周五（美东；周一 = 0）
+CALENDAR = 'SPY'           # 交易日历：以 SPY 日线判断哪天开市
+BENCHMARK = 'QQQ'          # 业绩基准（全收益）
 
 # 观察池：宽基 / 行业 / 债券商品 ETF + 大盘龙头。AI 可以在 data/watchlist.json 里追加。
 ETFS = ['SPY', 'QQQ', 'IWM', 'DIA',

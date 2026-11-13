@@ -1,9 +1,13 @@
 """收盘结算：按收盘价成交挂单（MOC），逐个交易日记账，更新净值。可以重复运行（幂等）。
 
+订单簿 data/orders/<日期>.json 的成交日：
+- "fill": "next_close"（现行规则）：<日期> 之后第一个交易日的收盘价成交。AI 在收盘后决策，所以只能成交在下一个交易日。
+- 没有 fill 字段（手册 v1 时期的旧订单）：<日期> 当天收盘价成交。
+
 python tools/settle.py
 """
 import json, math, sys
-from config import DATA, INCEPTION, INITIAL_CASH, SLIPPAGE, COMMISSION, BENCHMARK, to_et
+from config import DATA, INCEPTION, INITIAL_CASH, SLIPPAGE, COMMISSION, CALENDAR, BENCHMARK, to_et
 from fetch import fetch_symbol
 
 J = lambda p, d=None: json.loads(p.read_text(encoding='utf-8')) if p.exists() else d
@@ -63,18 +67,32 @@ def bench(nav, key, sym, d):
 
 def completed_sessions():
     """已经收完盘的交易日（以 SPY 日线为准）"""
-    rows = sorted(closes(BENCHMARK))
+    rows = sorted(closes(CALENDAR))
     now = to_et()
     today = now.date().isoformat()
     done_today = now.hour * 60 + now.minute >= 16 * 60 + 20
     return [d for d in rows if d >= INCEPTION and (d < today or (d == today and done_today))]
 
 
-def fill_orders(d, pf, trades):
-    p = DATA / 'orders' / f'{d}.json'
-    book = J(p)
-    if not book or book.get('status') != 'pending':
-        return
+def fill_date(book_date, book, sessions):
+    """订单簿应在哪个交易日成交；还没到（下一个交易日尚未收盘）返回 None"""
+    if book.get('fill') == 'next_close':
+        nxt = [s for s in sessions if s > book_date]
+        return nxt[0] if nxt else None
+    return book_date
+
+
+def pending_books():
+    out = []
+    for p in sorted((DATA / 'orders').glob('20*.json')):
+        b = J(p)
+        if b and b.get('status') == 'pending':
+            out.append((p.stem, p, b))
+    return out
+
+
+def fill_orders(d, p, book, pf, trades):
+    """按交易日 d 的收盘价成交订单簿 book（文件 p）"""
     fills, notes = [], []
     orders = book.get('orders', [])
     # 先卖后买
@@ -113,7 +131,7 @@ def fill_orders(d, pf, trades):
             pos['shares'] = tot
             pf['positions'][sym] = pos
             pnl = None
-        f = {'date': d, 'symbol': sym, 'side': side, 'shares': qty, 'price': round(price, 4), 'value': round(value, 2), 'reason': o.get('reason', '')}
+        f = {'date': d, 'order_date': p.stem, 'symbol': sym, 'side': side, 'shares': qty, 'price': round(price, 4), 'value': round(value, 2), 'reason': o.get('reason', '')}
         if pnl is not None:
             f['pnl'] = round(pnl, 2)
         fills.append(f); trades.append(f)
@@ -121,22 +139,22 @@ def fill_orders(d, pf, trades):
     book['fills'] = fills
     book['notes'] = notes
     W(p, book)
-    print(f'  {d}: 成交 {len(fills)} 笔' + (f'；{"；".join(notes)}' if notes else ''))
+    print(f'  {d}: 成交 {p.stem} 的订单 {len(fills)} 笔' + (f'；{"；".join(notes)}' if notes else ''))
 
 
 def expire_stale(sessions):
-    """挂在非交易日（节假日 / 周末）的单子作废"""
+    """当天成交的旧式订单挂在非交易日（节假日 / 周末）就作废；next_close 订单会顺延到下一个交易日，不作废"""
     for p in (DATA / 'orders').glob('*.json'):
         book = J(p)
         d = p.stem
-        if book.get('status') == 'pending' and sessions and d < sessions[-1] and d not in sessions:
+        if book.get('status') == 'pending' and book.get('fill') != 'next_close' and sessions and d < sessions[-1] and d not in sessions:
             book['status'] = 'expired'; book['notes'] = ['当天不是交易日，订单作废']
             W(p, book)
 
 
 def main():
     try:
-        fetch_symbol(BENCHMARK, '5d', tries=1, timeout=8)
+        fetch_symbol(CALENDAR, '5d', tries=1, timeout=8)
     except Exception as e:
         print(f'网络不通，无法访问 Yahoo Finance（{e}），跳过结算；收盘后的 GitHub Actions 会完成结算。')
         return 2
@@ -147,6 +165,13 @@ def main():
     sessions = completed_sessions()
     expire_stale(sessions)
     last = nav[-1]['date'] if nav else None
+    books = pending_books()
+    for bd, p, book in books:
+        t = fill_date(bd, book, sessions)
+        if book.get('fill') == 'next_close' and t and last and t <= last:
+            # 订单提交时它的成交日已经结算过了（例如补写的旧日期订单），不能再按过去的价格成交
+            book['status'] = 'expired'; book['notes'] = [f'成交日 {t} 已结算，订单作废']
+            W(p, book)
     for d in sessions:
         if last and d <= last:
             continue
@@ -157,11 +182,13 @@ def main():
                 pf['cash'] += p['shares'] * a
                 divs.append({'date': d, 'symbol': s, 'shares': p['shares'], 'per_share': a, 'amount': round(p['shares'] * a, 2)})
                 print(f'  {d}: {s} 分红 ${p["shares"] * a:,.2f}')
-        fill_orders(d, pf, trades)
+        for bd, p, book in books:
+            if book.get('status') == 'pending' and fill_date(bd, book, sessions) == d:
+                fill_orders(d, p, book, pf, trades)
         mv = sum(p['shares'] * (close_on(s, d) or p['cost']) for s, p in pf['positions'].items())
         v = pf['cash'] + mv
         nav.append({'date': d, 'nav': round(v, 2), 'cash': round(pf['cash'], 2), 'invested': round(mv, 2),
-                    'spy': bench(nav, 'spy', BENCHMARK, d), 'qqq': bench(nav, 'qqq', 'QQQ', d)})
+                    'spy': bench(nav, 'spy', 'SPY', d), 'qqq': bench(nav, 'qqq', 'QQQ', d)})
         pf['as_of'] = d
         print(f'  {d}: 净值 {v:,.2f}')
 
@@ -183,20 +210,30 @@ def write_summary(pf, nav, trades, divs):
         hold.append({'symbol': s, 'shares': p['shares'], 'cost': round(p['cost'], 4), 'price': px, 'value': round(val, 2),
                      'weight': val / total, 'pnl': round((px - p['cost']) * p['shares'], 2), 'pnl_pct': px / p['cost'] - 1})
     hold.sort(key=lambda h: -h['value'])
-    peak, mdd = 0, 0
-    for r in nav:
-        peak = max(peak, r['nav']); mdd = min(mdd, r['nav'] / peak - 1)
+    def max_dd(key):
+        peak, dd = 0, 0
+        for r in nav:
+            if r.get(key) is None:
+                continue
+            peak = max(peak, r[key]); dd = min(dd, r[key] / peak - 1)
+        return dd
+    mdd = max_dd('nav')
+    bkey = BENCHMARK.lower()
     pending = []
     for p in sorted((DATA / 'orders').glob('*.json')):
         b = J(p)
         if b.get('status') == 'pending':
-            pending.append({'date': p.stem, 'orders': b.get('orders', [])})
+            pending.append({'date': p.stem, 'fill': b.get('fill', 'same_close'), 'orders': b.get('orders', [])})
     journal = sorted((p.stem for p in (DATA / 'journal').glob('20*.json')), reverse=True)
     W(DATA / 'journal' / 'index.json', journal)
     W(DATA / 'summary.json', {
         'as_of': d, 'updated_at': to_et().isoformat(timespec='minutes'), 'inception': INCEPTION, 'initial': INITIAL_CASH,
         'nav': total, 'cash': pf['cash'], 'ret': total / INITIAL_CASH - 1,
+        'benchmark': BENCHMARK,
+        'bench_ret': nav[-1][bkey] / INITIAL_CASH - 1 if nav else 0,
+        'bench_max_drawdown': max_dd(bkey),
         'spy_ret': nav[-1]['spy'] / INITIAL_CASH - 1 if nav else 0,
+        'qqq_ret': nav[-1]['qqq'] / INITIAL_CASH - 1 if nav else 0,
         'day_ret': nav[-1]['nav'] / nav[-2]['nav'] - 1 if len(nav) > 1 else total / INITIAL_CASH - 1,
         'max_drawdown': mdd, 'days': len(nav), 'trades': len(trades), 'dividends': round(sum(x['amount'] for x in divs), 2), 'holdings': hold, 'pending': pending,
     })
