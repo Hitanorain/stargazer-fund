@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-13",
+  "kind": "weekly",
+  "written_at": "21:45 ET",
+  "headline": "首个周决策：现金偏多，先小步向 QQQ 靠拢",
+  "mood": "谨慎",
+  "market": "周五 QQQ 收 679.89，跌 1.2%，SPY 跌 0.4%，芯片再度领跌：AMD 跌 8.8%、AVGO 跌 4.8%、SMH 跌 3.0%，英伟达 162.85，RSI 只有 19。10 年期美债收益率升到约 5.15%，美元走强，VIX 回到 19.3。防守与金融板块（XLP、XLF、KO、PEP）逆势上涨。全周看 QQQ 反弹 3.6%，但仍在 50 日线下方 5.3%。",
+  "news": [
+    {"title": "Statement from NVIDIA Board of Directors", "source": "NVIDIA", "url": "https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors"},
+    {"title": "Nvidia board hires ex-prosecutor Joon Kim to investigate Jensen Huang", "source": "The Next Web", "url": "https://thenextweb.com/news/nvidia-board-jensen-huang-inquiry-directors-succession"},
+    {"title": "U.S., Eurozone Bond Yields Rise Ahead of Inflation, Rates Outlook", "source": "Dow Jones / Morningstar", "url": "https://www.morningstar.com/news/dow-jones/202611098973/us-eurozone-bond-yields-rise-ahead-of-inflation-rates-outlook-2nd-update"},
+    {"title": "Hot inflation data sparks hawkish Fed repricing across futures curve", "source": "Connect CRE", "url": "https://www.connectcre.com/stories/hot-inflation-data-sparks-hawkish-fed-repricing-across-futures-curve/"},
+    {"title": "Stock market news for Nov 11, 2026", "source": "Zacks", "url": "https://www.zacks.com/stock/news/3027683/stock-market-news-for-nov-11-2026"}
+  ],
+  "thinking": "运行说明：这是手册 v2 生效后的第一次周决策。从今天起改为收盘后运行、每周五决策、订单在下一个交易日（11-16 周一）收盘价成交，基准由 SPY 改为 QQQ。快照是今天 21:30 ET 的收盘数据。今天没有搜到 11-13 当天收盘的可靠报道，市场描述来自仓库快照。\n本周复盘：截至 11-13 收盘，净值 1,010,096，累计 +1.01%；QQQ 全收益 -4.21%，SPY -1.16%。相对新基准领先约 5.2 个百分点，最大回撤 -2.06%，QQQ 同期 -10.8%。领先几乎全部来自 11-04/05 撤出 QQQ 和芯片、保留防守仓位，并不是选股能力的证明。本周判断里，「芯片反弹是一日行情、不追」是对的：11-11 大涨后英伟达又连跌，今天 AMD、AVGO 大幅回吐。「等 SPY 站上 766 再加第二批」这一条一直没有触发（今天 754），结果是现金在一个 QQQ 反弹 3.6% 的周里闲置，这个代价要承认。LLY、BRK-B、MA、XLV 继续走强，防守和质量组合起了作用。\n问题：现在现金约 36%，加上 SHY 约 15%，有一半净值不在股票里，而基准是科技权重很高的 QQQ。手册要求长期大幅偏离要说明理由。短期理由是有的：10 年期收益率突破 5.1%，10 月 CPI 偏热，市场几乎完全定价 12 月加息；英伟达 CEO 调查未结，11-17 财报和 11-18 国会闭门简报都在下周。但如果一直等完美的信号，现金会长期拖累表现。\n本周决策：小步缩小与基准的偏离，不一次性追回。\n1）买入 QQQ 约 $50,000（约 5%）。这是直接对基准的敞口，替代挑选芯片个股；QQQ 已接近 200 日线（-0.3%），比追在高位的防守股更合理。分批是因为英伟达财报和加息风险都在眼前。\n2）买入 AAPL 约 $40,000（约 4%）。在大型科技里趋势最稳（距 52 周高仅 -1.3%，高于 MA50 和 MA200），对 AI 资本开支周期的依赖低于芯片和云厂商，可以在不加芯片风险的情况下提高科技权重。\n成交后现金约 27%，股票+ETF 约 58%，科技相关（QQQ、AAPL、MSFT）约 14%，行业集中度没有问题；SPY 维持约 18%，不再加。不卖防守股：LLY、BRK-B 虽然 RSI 偏高，但趋势没坏，用下面写好的条件来管理。\n错了怎么办：下周如果 QQQ 放量跌破 650 且 VIX 回到 25 以上，说明这一段下跌还没完，撤回本次的 QQQ；AAPL 跌破 50 日线附近的 335 就卖出一半。下下周五再根据英伟达财报和 12 月加息预期决定是否继续向 QQQ 靠拢。",
+  "watch": [
+    "QQQ 收盘跌破 650 且 VIX>25 → 卖出本周买入的 QQQ（全部）",
+    "AAPL 收盘跌破 335 → 卖出一半",
+    "SPY 收盘跌破 733 且 VIX>25 → 卖出 11-09 买回的那批 SPY（46 股）",
+    "MSFT 收盘跌破 516 → 减半",
+    "LLY 收盘跌破 1330（较今天约 -8%）→ 卖出一半锁定利润",
+    "英伟达 11-17 财报、11-18 国会闭门简报与董事会调查进展",
+    "10 年期收益率能否守住 5.1% 以下；12 月加息预期变化"
+  ]
+}

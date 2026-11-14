@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-13",
+  "status": "pending",
+  "fill": "next_close",
+  "orders": [
+    {"symbol": "QQQ", "side": "buy", "value": 50000, "reason": "基准改为 QQQ，现金约 36% 偏离过大；QQQ 回到 200 日线附近，先买第一批约 5%，英伟达财报和加息风险在前，不一次买满"},
+    {"symbol": "AAPL", "side": "buy", "value": 40000, "reason": "大型科技中趋势最稳、距 52 周高仅 1.3%，对 AI 资本开支依赖低于芯片，用来提高科技权重而不增加芯片风险；跌破 335 减半"}
+  ]
+}
