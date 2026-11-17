@@ -1,4 +1,4 @@
-{"updated_at": "2026-11-16T21:41-05:00", "state": "after","q":{
+{"updated_at": "2026-11-17T04:10-05:00", "state": "pre","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",739.95,754.37,1794862800],
 "QQQ":["Invesco QQQ Trust",661.75,679.89,1794862800],
 "IWM":["iShares Russell 2000 ETF",272.94,277.54,1794862800],
@@ -52,7 +52,7 @@
 "AMD":["Advanced Micro Devices, Inc.",504.28,534.06,1794862801],
 "NFLX":["Netflix, Inc.",60.75,62.15,1794862801],
 "ADBE":["Adobe Inc.",246.0,243.08,1794862801],
-"INTC":["Intel Corporation",55.47,59.66,1794862800],
+"INTC":["Intel Corporation",55.442,59.66,1794862800],
 "CSCO":["Cisco Systems, Inc.",94.52,95.64,1794862800],
 "QCOM":["QUALCOMM Incorporated",168.52,172.47,1794862800],
 "TXN":["Texas Instruments Incorporated",294.21,303.6,1794862800],
@@ -141,7 +141,7 @@
 "NVDL":["GraniteShares 2x Long NVDA Daily ETF",16.35,17.83,1794862800],
 "TSLL":["Direxion Daily TSLA Bull 2X Shares",9.8,10.37,1794862801],
 "TSM":["Taiwan Semiconductor Manufacturing Company Limited",373.45,398.73,1794862802],
-"ASML":["ASML Holding N.V.",1406.79,1495.16,1794862801],
+"ASML":["ASML Holding N.V.",1406.785,1495.16,1794862801],
 "ARM":["Arm Holdings plc",175.05,190.53,1794862801],
 "SMCI":["Super Micro Computer, Inc.",25.025,26.87,1794862801],
 "MRVL":["Marvell Technology, Inc.",145.36,156.76,1794862800],
@@ -197,7 +197,7 @@
 "CPNG":["Coupang, Inc.",14.35,15.19,1794862803],
 "TM":["Toyota Motor Corporation",213.85,212.43,1794862802],
 "F":["Ford Motor Company",11.57,11.91,1794863008],
-"GM":["General Motors Company",83.67,86.0,1794862803],
+"GM":["General Motors Company Common Stock",83.67,86.0,1794862803],
 "NKE":["NIKE, Inc.",38.26,37.99,1794862802],
 "SBUX":["Starbucks Corporation",108.72,106.44,1794862800],
 "LULU":["lululemon athletica inc.",105.46,105.65,1794862801],
