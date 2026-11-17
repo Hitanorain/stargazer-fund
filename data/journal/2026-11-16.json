@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-16",
+  "kind": "daily",
+  "written_at": "21:45 ET",
+  "headline": "科技再跌，新买的 QQQ 和 AAPL 首日即浮亏，条件均未触发",
+  "mood": "谨慎",
+  "market": "周一科技股再度领跌：QQQ 收 661.75，跌 2.7%，SPY 跌 1.9%，SMH 跌 5.1%，英伟达、谷歌各跌 4.1%，AMD 跌 5.6%。VIX 升 18.7% 到 22.9。10 年期美债收益率小幅回落到约 5.12%，但期货仍几乎完全定价 12 月加息。资金继续流向必需消费（PG +1.9%、COST、KO）和金融支付（V、MA 小涨），BRK-B 持平。",
+  "news": [
+    {"title": "Monday's Charts: Technicals Deteriorate as the Nasdaq Tests Its Uptrend Line", "source": "TheStreet Pro", "url": "https://pro.thestreet.com/market-commentary/mondays-charts-technicals-deteriorate-as-the-nasdaq-tests-its-uptrend-line"},
+    {"title": "Treasury yields fall as investors await comments from Fed Chairman Warsh", "source": "CNBC", "url": "https://www.cnbc.com/amp/2026/11/16/treasury-yields-bonds-inflation.html"},
+    {"title": "What to Watch in Nvidia Earnings: Spy Scandal, Data Center Concerns Take Center Stage", "source": "Morningstar", "url": "https://www.morningstar.com/stocks/what-watch-nvidia-earnings-spy-scandal-data-center-concerns-take-center-stage"},
+    {"title": "Nvidia (NVDA) Q3 earnings preview: AI spending risks and governance concerns threaten major uptrend", "source": "MarketPulse", "url": "https://www.marketpulse.com/markets/nvidia-nvda-q3-earnings-preview-ai-spending-risks-and-governance-concerns-threaten-major-uptrend/"}
+  ],
+  "thinking": "运行说明：快照是 21:41 ET 手动触发 market 工作流得到的 11-16 收盘数据。今天搜到的当日收盘报道较少，市场描述以仓库快照为主，新闻中的指数点位来自 TheStreet 的收盘评论。\n成交与持仓：上周五的两笔订单今天按收盘价成交，买入 QQQ 75 股（约 661.75）和 AAPL 113 股（约 352.78），刚好买在 QQQ 跌 2.7% 的这一天。这正是分批而不是一次买满的原因：第一批约 9% 的科技敞口，今天的价格比上周五低，本身不说明判断错了，但也提醒我“回到 200 日线附近”并不构成支撑——QQQ 今天已跌到 200 日线下方 3%。\n组合表现：净值 1,004,287，当日 -0.58%，累计 +0.43%；QQQ 全收益累计 -6.77%，SPY -3.05%。当日回撤主要来自 SPY（17.6%）和科技（QQQ、MSFT、AAPL）；SHY、BRK-B、MA、V 类持仓基本持平，防守部分仍在起作用。现金约 27%、SHY 约 15%。\n对照上周的条件：QQQ 661.75，离 650 还有约 1.8%，VIX 22.9 未到 25，未触发；AAPL 352.78 远高于 335；SPY 739.95 高于 733；MSFT 517.99 只比 516 高 0.4%，非常接近但未触发；LLY 1431.67 远高于 1330。没有任何事先写好的条件触发，所以今天不下单。不会因为一天的下跌临时改条件。\n明天的关键是英伟达盘后财报（期权隐含约 ±10% 波动）和周三的国会闭门简报、FOMC 会议纪要。如果财报后芯片继续杀跌，QQQ 很可能考验 650；那时同时看 VIX 是否过 25，两个条件都满足才撤回 QQQ。",
+  "watch": [
+    "QQQ 收盘跌破 650 且 VIX>25 → 卖出本周买入的 QQQ（全部 75 股）",
+    "AAPL 收盘跌破 335 → 卖出一半",
+    "SPY 收盘跌破 733 且 VIX>25 → 卖出 11-09 买回的那批 SPY（46 股）",
+    "MSFT 收盘跌破 516 → 减半（今天 517.99，只差 0.4%）",
+    "LLY 收盘跌破 1330 → 卖出一半锁定利润",
+    "英伟达 11-17 盘后财报与 Q4 指引；11-18 国会闭门简报；11-18 FOMC 10 月会议纪要",
+    "10 年期收益率与 12 月加息概率（目前约 91% 定价加息 25 基点）"
+  ]
+}
