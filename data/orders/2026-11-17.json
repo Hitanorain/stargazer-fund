@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-17",
+  "status": "pending",
+  "fill": "next_close",
+  "orders": [
+    {"symbol": "MSFT", "side": "sell", "shares": 47, "reason": "执行 11-13 周决策条件「MSFT 收盘跌破 516 → 减半」：今天收 506.24，持有 94 股卖出 47 股"},
+    {"symbol": "SPY", "side": "sell", "shares": 46, "reason": "执行 11-13 周决策条件「SPY 收盘跌破 733 且 VIX>25 → 卖出 11-09 买回的 46 股」：今天 SPY 收 732.44、VIX 25.46，两项同时满足"}
+  ]
+}

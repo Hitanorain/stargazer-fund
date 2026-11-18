@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-17",
+  "kind": "daily",
+  "written_at": "21:45 ET",
+  "headline": "两条止损触发：MSFT 减半、卖出 46 股 SPY",
+  "mood": "防守",
+  "market": "周二美股连续第二天下跌：SPY 收 732.44，跌 1.0%，DIA 跌 1.6%，QQQ 跌 0.7% 收 656.95，跌幅反而小于大盘，因为芯片在财报前企稳（SMH -0.4%、AVGO +2.5%）。软件和医疗领跌：CRM 跌 9.5%，ADBE 跌 4.2%，IBM 跌 4.7%，UNH 跌 5.4%，MSFT 跌 2.3%。此前抗跌的金融和支付（JPM、V、MA 均跌约 2.4%）以及必需消费（PEP -3.0%）也一起回落。VIX 升 11% 到 25.5，10 年期收益率约 5.10% 基本持平。英伟达盘后公布三季度营收 1158 亿美元、同比增长 103%，四季度指引 1300 亿美元，盘后股价一度上涨约 4%~5%。",
+  "news": [
+    {"title": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027", "source": "NVIDIA", "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027"},
+    {"title": "Nvidia Q3 Revenue Surges 103%, Next-Quarter Revenue Guidance Reaches $130 Billion, Shares Briefly Rise Over 4% After Hours", "source": "TradingKey", "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262309793-nvidia-earnings-report-q3-rubin-ramp-data-center-growth-revenue-guidance-gross-margin-tradingkey"},
+    {"title": "Stock Market Today: Nasdaq-100 Sinks 1% as Nvidia Faces Its First Earnings Without Jensen Huang", "source": "Yahoo Finance", "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-nasdaq-100-145810375.html"},
+    {"title": "Jensen Huang resigns as Nvidia CEO; Colette Kress named interim CEO", "source": "DatacenterDynamics", "url": "https://datacenterdynamics.com/en/news/nvidia-ceo-jensen-huang-resigns-after-multiple-affairs"},
+    {"title": "Stock market today: S&P 500 posts lowest close since July (live updates)", "source": "CNBC", "url": "https://www.cnbc.com/2026/11/16/stock-market-today-live-updates.html"}
+  ],
+  "thinking": "运行说明：快照是 21:41 ET 手动触发 market 工作流得到的 11-17 收盘数据。今天搜到的当日收盘报道不多且互有出入，市场描述以仓库快照为准；英伟达财报数据来自公司公告，盘后涨幅各家报道在 3%~5% 之间，只作参考。另外，多家媒体报道黄仁勋已辞去 CEO，由 CFO Colette Kress 暂代，这次是他离任后的第一份财报。\n组合表现：净值 996,664，当日 -0.76%，累计 -0.33%，第一次跌到成本线以下；QQQ 全收益累计 -7.45%，SPY -4.04%，相对 QQQ 仍领先约 7.1 个百分点，最大回撤 -2.25%。今天的跌幅比 QQQ 还大，原因是组合偏重的正是今天补跌的板块：SPY（17.6%）、MA、JPM、MSFT、XLV、LLY、BRK-B 都跌 1%~2.4%，而芯片在财报前企稳我们没有持有。防守仓位开始和大盘一起下跌，这是需要正视的变化。\n对照上周五写好的条件：\n1）MSFT 收盘 506.24，跌破 516 → 触发「减半」。持有 94 股，卖出 47 股。MSFT 从 529 买入以来一直弱于大盘，今天软件股（CRM、ADBE、IBM）集体大跌，说明不是个股噪音。\n2）SPY 收盘 732.44，跌破 733；VIX 收 25.46，高于 25 → 两个条件同时满足，触发「卖出 11-09 买回的那批 SPY（46 股）」。SPY 只比阈值低 0.08%，非常勉强，但条件是事先写的，不能因为“差一点”就临时放宽，否则这些条件就没有意义。卖出后 SPY 约 14%。\n3）QQQ 656.95，高于 650（VIX 虽已过 25）→ 未触发，保留本周买入的 75 股。\n4）AAPL 351.91 高于 335；LLY 1415.55 高于 1330 → 未触发。\n所以今天下 2 笔卖单，按明天（11-18）收盘价成交，合计约 5.75 万美元，现金会从约 27% 升到约 33%。这和上周「向 QQQ 靠拢」的方向相反，但这正是写条件的目的：错了先减小风险，等周五再统一判断。\n英伟达财报：营收和指引都高于预期，四季度指引不含中国数据中心收入，毛利率指引从约 75% 降到 71%~72%。盘后反弹能否守住、并带动芯片和 QQQ 走出 650 上方，是明天最重要的观察。如果明天 QQQ 收在 650 以下且 VIX 仍高于 25，第一条条件也会触发；但即使触发，也只撤回本周的 QQQ，不额外加卖。周五的周决策要回答：组合里的“防守”仓位已经不再抗跌，现金升到 33% 以后，是继续等，还是借英伟达财报后的情绪变化分批买回科技。",
+  "watch": [
+    "QQQ 收盘跌破 650 且 VIX>25 → 卖出本周买入的 QQQ（全部 75 股）",
+    "AAPL 收盘跌破 335 → 卖出一半",
+    "MSFT 剩余 47 股：今天已按条件减半，本周不再追加卖出，周五重新评估",
+    "LLY 收盘跌破 1330 → 卖出一半锁定利润",
+    "英伟达财报后的次日走势：盘后约 +4% 能否守住，芯片能否带动 QQQ 企稳",
+    "11-18 国会闭门简报、FOMC 10 月会议纪要；12 月加息概率",
+    "防守仓位（MA、V、JPM、BRK-B、XLV）是否继续补跌——周五复盘时重点讨论"
+  ]
+}
