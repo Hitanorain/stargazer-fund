@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-18",
+  "kind": "daily",
+  "written_at": "21:50 ET",
+  "headline": "英伟达财报后冲高回落，两笔止损成交，条件无新触发",
+  "mood": "谨慎",
+  "market": "周三美股分化：QQQ 收 659.51，涨 0.4%，SPY 跌 0.3%，DIA 跌 1.1%。英伟达财报超预期，但盘中由涨转跌，收 150.96，跌 2.9%，RSI 只有 16。AMD（+5.3%）、AVGO（+3.6%）、AMZN（+3.8%）支撑了纳指。UNH 暴跌 10.2%，带动医疗（XLV -2.2%、LLY -2.3%、MRK -3.9%）走弱；能源（XLE -3.3%）和黄金白银也大跌。FOMC 10 月会议纪要偏鹰，10 年期收益率小幅回落到约 5.07%，VIX 24.6。",
+  "news": [
+    {"title": "Wall Street ends mixed after Nvidia earnings, Fed minutes", "source": "Reuters", "url": "https://lufkindailynews.com/news_reuters/business/wall-street-ends-mixed-after-nvidia-earnings-fed-minutes/article_757d7e1e-451b-5fc3-914c-44086229e225.html"},
+    {"title": "Nvidia sinks after earnings, dragging down neoclouds CoreWeave, Iren", "source": "CNBC", "url": "https://www.cnbc.com/2026/11/18/nvidia-stock-earnings.html"},
+    {"title": "Nvidia stock erases earnings pop as investors face life after Jensen Huang", "source": "Yahoo Finance", "url": "https://finance.yahoo.com/markets/stocks/article/nvidia-stock-erases-earnings-pop-as-investors-face-life-after-jensen-huang-173547783.html"},
+    {"title": "Stock market today: Dow, S&P 500 slip ahead of Anthropic IPO, Nvidia stock extends decline", "source": "Yahoo Finance", "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-november-18-dow-sp-500-nasdaq-nvidia-earnings-anthropic-ipo-143530588.html"}
+  ],
+  "thinking": "运行说明：快照是 21:41 ET 手动触发 market 工作流得到的 11-18 收盘数据。没有找到 FOMC 纪要细节的可靠一手报道，“偏鹰”的判断来自 Reuters 收盘综述，具体内容周五前再核实。\n成交与持仓：昨天的两笔止损卖单今天收盘成交：MSFT 卖出 47 股（约 508.04，亏约 1,000 美元），SPY 卖出 46 股（约 729.83，亏约 1,566 美元）。执行后看结果参半：MSFT 今天反弹 0.4%，SPY 又跌了 0.3%，卖出价比昨天信号价更低，说明 MOC 次日成交的滑移在下跌趋势中对卖方不利。这是规则的代价，事先已知道。现金升到约 33%（33.0 万），SHY 15%，SPY 降到 14.2%。\n组合表现：净值 991,978，当日 -0.47%，累计 -0.80%；QQQ 全收益累计 -7.09%，SPY -4.33%。今天组合跑输 QQQ 约 0.9 个百分点，主要拖累是医疗：UNH 大跌引发板块抛售，LLY（-2.3%）、XLV（-2.2%）合计约 10.6% 仓位；BRK-B（-2.1%）、JPM（-1.8%）也跌。连续第二天“防守”仓位跌得比科技多，最大回撤扩大到 -2.71%。这验证了昨天的担心：在高利率和资金轮动的环境里，防守板块不再是免费的保险。\n对照条件：QQQ 659.51，高于 650，未触发；AAPL 352.45 高于 335；LLY 1382.75，高于 1330 但距离只有约 3.8%，需要警惕；MSFT 剩余 47 股按计划本周不再动。没有任何条件触发，今天不下单。\n英伟达：营收和指引都超预期，股价却收跌 2.9%，董事会明确不会让黄仁勋回任，市场在给管理层不确定性打折。好财报换不来上涨，说明芯片的问题现在是估值框架和治理，不是业绩；我们不持有个股芯片，这一点暂不改变。不过 AMD、AVGO 今天走强，说明 AI 链内部开始分化，不是全面崩塌。\n周五要回答的问题：1）医疗仓位是否需要重新评估，特别是 UNH 事件会不会扩散到 LLY / XLV；2）现金 33% + SHY 15%，近一半不在股票里，相对 QQQ 的领先（约 6.3 个百分点）正在被防守仓位的补跌一点点吃掉，要不要继续向 QQQ 靠拢、以什么条件靠拢。",
+  "watch": [
+    "QQQ 收盘跌破 650 且 VIX>25 → 卖出 11-13 周决策买入的 QQQ（全部 75 股）",
+    "AAPL 收盘跌破 335 → 卖出一半",
+    "LLY 收盘跌破 1330 → 卖出一半锁定利润（今天 1382.75，距离约 3.8%）",
+    "MSFT 剩余 47 股：本周不再追加卖出，周五重新评估",
+    "UNH 暴跌的原因与是否波及医保 / 医药板块（LLY、XLV）",
+    "FOMC 纪要细节与 12 月加息概率；10 年期收益率能否保持在 5.1% 以下",
+    "英伟达管理层与董事会调查进展；AI 链（AMD、AVGO）与英伟达的分化能否持续"
+  ]
+}
