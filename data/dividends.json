@@ -5,5 +5,12 @@
   "shares": 39,
   "per_share": 1.73,
   "amount": 67.47
+ },
+ {
+  "date": "2026-11-19",
+  "symbol": "MSFT",
+  "shares": 47,
+  "per_share": 0.98,
+  "amount": 46.06
  }
 ]
