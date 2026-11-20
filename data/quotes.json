@@ -1,9 +1,9 @@
-{"updated_at": "2026-11-19T16:30-05:00", "state": "after","q":{
+{"updated_at": "2026-11-19T21:37-05:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",715.87,730.2,1795122000],
 "QQQ":["Invesco QQQ Trust",645.04,659.51,1795122001],
 "IWM":["iShares Russell 2000 ETF",264.22,270.12,1795122000],
 "DIA":["State Street SPDR Dow Jones Industrial Average ETF Trust",490.79,501.73,1795122000],
-"XLK":["State Street Technology Select Sector SPDR ETF",160.68,163.81,1795122000],
+"XLK":["State Street Technology Select Sector SPDR ETF",160.69,163.81,1795122000],
 "XLF":["State Street Financial Select Sector SPDR ETF",55.58,56.42,1795122000],
 "XLE":["State Street Energy Select Sector SPDR ETF",60.89,61.29,1795122000],
 "XLV":["State Street Health Care Select Sector SPDR ETF",177.46,181.17,1795122000],
