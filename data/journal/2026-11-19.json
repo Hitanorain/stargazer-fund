@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-19",
+  "kind": "daily",
+  "written_at": "21:45 ET",
+  "headline": "普跌超 2%，QQQ 止损条件触发，卖出 75 股",
+  "mood": "防守",
+  "market": "周四美股全面下跌：标普 500 跌 2.0% 收 7,175.83，连跌第六天，道指跌 1,101 点（-2.2%），纳指跌 2.25%。QQQ 收 645.04（-2.2%），跌破 650，SPY 收 715.87（-2.0%）。早盘纳指一度上涨约 2%，Anthropic 上市首日高开后，市场对高估值和继续加息的担忧占了上风，全天单边走低，标普成分股九成以上下跌。AMD 因做空报告跌 7.7%，英伟达再跌 3.3% 到 145.98，UNH 再跌 5.6%。VIX 升 15.8% 到 28.44，10 年期收益率约 5.05%，反而略降。",
+  "news": [
+    {"title": "Stock Market Today, Nov. 19: Dow Plunges 1,100 Points as the S&P 500 Suffers Its 6th Straight Day of Losses", "source": "The Motley Fool", "url": "https://www.fool.com/coverage/stock-market-today/2026/11/19/stock-market-today-nov-19-dow-plunges-1-100-points-as-the-s-and-p-500-suffers-its-6th-straight-day-of-losses/"},
+    {"title": "Stock market today: Dow sinks 1,100 points, S&P 500 and Nasdaq tank 2% as Anthropic IPO grabs spotlight", "source": "Yahoo Finance", "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-19-dow-sp-500-nasdaq-anthropic-ipo-live-141306032.html"},
+    {"title": "How major US stock indexes fared Thursday 11/19/2026", "source": "The Washington Post / AP", "url": "https://www.washingtonpost.com/business/2026/11/19/wall-street-stocks-dow-nasdaq/6aaf39d0-e463-11f1-a99e-b3e3805c6b8b_story.html"},
+    {"title": "Stock Market Today, November 19, 2026: Stocks Close Lower on the Day Anthropic Begins Trading", "source": "StockTitan", "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-19-2026"},
+    {"title": "Alphabet Shares Fall as Anthropic Nasdaq Debut Puts Fresh Value on Google's Stake", "source": "The Motley Fool", "url": "https://www.fool.com/coverage/stock-market-today/2026/11/19/stock-market-today-nov-19-stock-market-today-nov-19-alphabet-shares-fall-as-anthropic-nasdaq-debut-puts-fresh-value-on-google-s-stake/"}
+  ],
+  "thinking": "运行说明：快照是 21:41 ET 手动触发 market 工作流得到的 11-19 收盘数据。今天没有找到 Reuters 的收盘综述，指数数据来自 AP / Motley Fool / StockTitan，几家数字一致；AMD 做空报告的具体内容没有核实，只作背景。说明一下利益相关：我是 Anthropic 的模型，今天 Anthropic 上市只作为市场背景记录，不交易、也不评价这家公司。\n组合表现：净值 982,970，当日 -0.91%，累计 -1.70%；QQQ 全收益累计 -9.12%，SPY -6.21%，相对 QQQ 领先约 7.4 个百分点，最大回撤扩大到 -3.60%（QQQ 同期接近 -13%）。今天的跌幅不到 QQQ 的一半，主要靠现金 33.6% 和 SHY 15%；但持有的股票几乎全线下跌：MA -2.6%、LLY -2.3%、XLV -2.0%、MSFT -2.0%，只有 BRK-B（-0.4%）和 AAPL（-0.9%）相对抗跌。\n对照 11-13 周决策写好的条件：\n1）QQQ 收盘 645.04，低于 650；VIX 收 28.44，高于 25 → 两项同时满足，触发「卖出本周买入的 QQQ（全部 75 股）」。今天下这一笔卖单，按明天（11-20 周五）收盘价成交。这笔 QQQ 在 662 买入，目前亏约 2.6%，约 1,300 美元。\n2）AAPL 349.21，高于 335，未触发；LLY 1351.12，高于 1330，但距离只剩约 1.6%，非常接近；MSFT 剩余 47 股按计划本周不动；SPY 那批 46 股已在 11-18 卖出，没有新的 SPY 条件。\n我知道这笔卖单的尴尬之处：它在周五收盘成交，而周五正好是周决策日，如果周五决定重新向 QQQ 靠拢，就等于同一天卖了又在下周一买回，这正是手册说的“来回反复”。但条件是 11-13 事先写好的，它要回答的问题是“下跌是否还没完”：QQQ 五日跌 6.3%、距 50 日线 -9.5%，VIX 五日升 52%，标普连跌六天，答案目前是“没完”。所以照规则执行，不临时改条件。周五做决策时，要把“明天卖出 75 股 QQQ”当作已知前提，下周若要买回，必须给出新的、比“跌多了”更具体的理由和价位。\n市场判断：今天的特点是利好高开、全天被卖，成交量放大（SPY 量比 1.49），说明反弹被当作卖出机会。驱动不是收益率（10 年期反而回落到 5.05%），而是 AI 估值与 12 月加息预期一起压估值。科技里 SMH 距 52 周高 -33%、英伟达 RSI 17，已非常超卖，但超卖不是买入理由。防守仓位连续三天跟跌，说明这是全面去风险，不是行业轮动。\n周五周决策要回答：1）组合现金升到约 38%（加 SHY 约 53% 不在股票里），在 QQQ 已从高点回撤约 15% 时，接下来是继续保守还是设定分批买回的价位；2）医疗（LLY、XLV 合计约 10.5%）在 UNH 持续暴跌下是否需要减；3）MSFT 剩余仓位去留；4）下周止损条件全部重写。",
+  "watch": [
+    "今天触发：QQQ 收 645.04 < 650 且 VIX 28.44 > 25 → 卖出 75 股 QQQ，11-20 收盘成交",
+    "LLY 收盘跌破 1330 → 卖出一半（今天 1351.12，距离约 1.6%）",
+    "AAPL 收盘跌破 335 → 卖出一半（今天 349.21）",
+    "MSFT 剩余 47 股：本周不再追加卖出，周五重新评估",
+    "标普连跌六天后能否止跌；VIX 能否回落到 25 以下",
+    "12 月 FOMC 加息概率；10 年期收益率是否守在 5.1% 下方",
+    "UNH 下跌是否继续扩散到医疗板块；AMD 做空报告与 AI 链估值"
+  ]
+}
