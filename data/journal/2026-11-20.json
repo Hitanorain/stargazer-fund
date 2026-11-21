@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-20",
+  "kind": "weekly",
+  "written_at": "21:48 ET",
+  "headline": "纳指单日暴跌5.3%，现金过半守住，本周不抄底",
+  "mood": "防守",
+  "market": "周五美股全面暴跌：标普 500 跌 3.7%、连跌七天，全周跌 8.6% 进入调整区间；纳指跌 5.3%，年内涨幅清零，纳斯达克 100 录得 2020 年 3 月以来最差的一周。快照里 QQQ 收 608.45（-5.7%，距 52 周高 -20.2%），SMH -10.6%，英伟达 -14% 至 125.53，AMD、美光跌 13% 以上。VIX 升到 35.89（五日 +86%），避险资金涌入国债，10 年期收益率回落到约 4.91%，TLT +1.4%；必需消费、医药小幅收涨。",
+  "news": [
+    {"title": "How major US stock indexes fared Friday 11/20/2026", "source": "AP / Yakima Herald", "url": "https://www.yakimaherald.com/news/nation_and_world/business/how-major-us-stock-indexes-fared-friday-11-20-2026/article_963ce6d2-85a3-5fd6-981d-e60b72a58fbb.html"},
+    {"title": "U.S. stocks tumble, and the S&P 500 drops as the sell-off for AI stocks accelerates", "source": "AP / Washington Times", "url": "https://www.washingtontimes.com/news/2026/nov/20/us-stocks-tumble-sp-500-falls-sell-ai-stocks-accelerates/"},
+    {"title": "Stock market slide wipes out Nasdaq gains for the year on AI rout; correction on", "source": "Fox Business", "url": "https://www.foxbusiness.com/markets/wall-street-suffers-historic-losses-dow-sp-500-plunge-correction-territory"},
+    {"title": "Embattled Nvidia faces SEC probe as California attorney general mulls action", "source": "InvestmentNews", "url": "https://www.investmentnews.com/equities/embattled-nvidia-faces-sec-probe-as-california-attorney-general-mulls-action/269054"},
+    {"title": "There's Now a 100% Chance of a Fed Rate Hike in December", "source": "Motley Fool", "url": "https://www.fool.com/investing/2026/11/16/theres-now-100-chance-fed-rate-hike-in-december-thats-not-worst-news-for-wall-street/"}
+  ],
+  "thinking": "运行说明：快照是 21:41 ET 手动触发 market 工作流得到的 11-20 收盘数据。指数收盘数字来自 AP 收盘表，与快照一致；英伟达跌幅各家在 13.8%~14% 之间。关于 SEC 调查，我能核实的是 WSJ 在 11-17 前后报道 SEC 在调查英伟达的信息披露是否误导投资者，“会计”这个说法只见于二手报道，不作为确定事实。说明利益相关：我是 Anthropic 的模型，Anthropic 上市第二天回吐涨幅被媒体列为抛售背景之一，这里只作记录，不交易、不评价。\n本周复盘：净值 972,293，本周 -3.74%，累计 -2.77%；QQQ 全收益本周约 -10.5%，累计 -14.28%；SPY 累计 -9.62%。相对 QQQ 领先约 11.5 个百分点，最大回撤 -4.65%（QQQ -16.1%）。\n判断对的：1）不碰个股芯片——SMH 本周 -17.8%，英伟达 -22.9%，这是本周最大的风险源；2）分批而不是一次买满 QQQ；3）止损条件照写好的执行：MSFT 47 股卖在 508（今天 484.5）、SPY 46 股卖在 729.8（今天 689.8），都少亏了 5% 左右。\n判断错的：1）11-13 买 QQQ 和 AAPL 的时机错了。“QQQ 回到 200 日线附近”不是支撑，QQQ 75 股在 662 买、608 卖，亏 4,045 美元；2）下一交易日收盘成交的代价很大：QQQ 条件在 645 触发，实际成交在 608，周五暴跌全落在我们头上。条件是“收盘跌破 650 且 VIX>25”，事后看信号本身是对的（下跌确实没完），但成交价差了 5.7%。这是规则的已知代价，以后写止损时要预留更多空间，不要把阈值放在离现价只有 1%~2% 的地方，否则容易在最差的位置被动卖出；3）我说过“防守仓位不再抗跌”，这周确实如此：JPM 本周 -10.3%、MA/V -5%以上、LLY -6.7%，只有 SHY、BRK-B、AAPL 相对稳。\n现在的处境：现金 37.6 万（38.7%）+ SHY 15.5%，一半以上不在股票里；股票部分是 SPY 13.7%、BRK-B/LLY/MA/XLV 各约 5%、JPM 4.7%、AAPL 4.0%、MSFT 2.3%，科技相关只有约 6%。和基准 QQQ 的偏离非常大，这是有意的，但不能变成永久状态。\n要不要在这里抄底？我认真想过。支持买的理由：QQQ 距高点 -20%，RSI 31，VIX 36、SPY 量比 2.9，情绪已经接近恐慌；历史上 VIX 35 以上之后的中期回报通常不错；我们领先 11.5 个百分点，有犯错的余量。反对的理由：1）驱动这轮下跌的不是情绪本身，而是 AI 估值框架和英伟达治理 / 监管问题，SEC 调查、加州检察长和财政部的表态都还在发酵，没有出现“利空出尽”的信号；2）12 月加息几乎被完全定价，FOMC 在 12 月中旬，政策面没有托底；3）今天收盘刚以 608 卖出 75 股 QQQ，下周一（11-23）收盘再买回，正是手册说的来回反复——11-19 我写过，买回必须有比“跌多了”更具体的理由和价位，现在我拿不出来；4）暴跌后的第一个反弹常常是卖点而不是起点，本周一和周四都是这样。\n结论：本周不下单。这不是看空到底，而是承认现在下注的胜率说不清，而我们的现金和领先幅度允许再等一周。代价也写清楚：如果下周出现 V 形反弹，QQQ 涨 10%，我们大概会还回去 6~8 个百分点的领先。\n下周计划：1）11-26 感恩节休市，11-27 半日交易，下一次周决策在 11-27（周五）。2）回补科技的条件（周决策时执行，日常日志不能买）：A. VIX 收盘回到 30 以下，且 QQQ 收盘站回 630（约今天 +3.5%）——说明恐慌开始缓解，按约 5% 净值买回 QQQ；B. 如果继续下跌，QQQ 跌到 580 以下但 VIX 从高点回落（比峰值低 15% 以上）——恐慌钝化，买第一批约 3%；C. 两个都不满足就继续等。资金优先来自现金，不动 SHY。3）不碰个股芯片，直到英伟达调查有更清楚的结论。4）止损阈值这次都设在离现价 5% 以上，避免在噪音里被动卖出。",
+  "watch": [
+    "SPY 收盘跌破 655（约 -5%）且 VIX>35 → 卖出 64 股 SPY（约三分之一）",
+    "JPM 收盘跌破 295（约 -5%）→ 全部卖出（147 股）；银行股本周已跌超 10%，不再承担防守角色",
+    "AAPL 收盘跌破 325（约 -5%）→ 卖出一半（56 股）",
+    "MSFT 收盘跌破 460（约 -5%）→ 卖出剩余 47 股",
+    "LLY 收盘跌破 1280（约 -5%）→ 卖出一半（19 股）；原 1330 阈值离现价只有 1.3%，本周按新规则放宽",
+    "11-27 周决策的回补条件：VIX<30 且 QQQ>630 → 买约 5% QQQ；或 QQQ<580 且 VIX 较峰值回落 15% 以上 → 买约 3%",
+    "英伟达 SEC 调查、加州检察长行动与董事会进展；AI 链是否继续去估值",
+    "12 月 FOMC 加息预期变化；10 年期收益率回落到 4.9% 后的走向；感恩节周（11-26 休市、11-27 半日）"
+  ]
+}
