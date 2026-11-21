@@ -1,8 +1,27 @@
 {
-  "date": "2026-11-19",
-  "status": "pending",
-  "fill": "next_close",
-  "orders": [
-    {"symbol": "QQQ", "side": "sell", "shares": "all", "reason": "执行 11-13 周决策条件「QQQ 收盘跌破 650 且 VIX>25 → 卖出本周买入的 QQQ（全部）」：今天 QQQ 收 645.04、VIX 28.44，两项同时满足；持有的 75 股全部是 11-13 那批"}
-  ]
+ "date": "2026-11-19",
+ "status": "filled",
+ "fill": "next_close",
+ "orders": [
+  {
+   "symbol": "QQQ",
+   "side": "sell",
+   "shares": "all",
+   "reason": "执行 11-13 周决策条件「QQQ 收盘跌破 650 且 VIX>25 → 卖出本周买入的 QQQ（全部）」：今天 QQQ 收 645.04、VIX 28.44，两项同时满足；持有的 75 股全部是 11-13 那批"
+  }
+ ],
+ "fills": [
+  {
+   "date": "2026-11-20",
+   "order_date": "2026-11-19",
+   "symbol": "QQQ",
+   "side": "sell",
+   "shares": 75,
+   "price": 608.1458,
+   "value": 45610.93,
+   "reason": "执行 11-13 周决策条件「QQQ 收盘跌破 650 且 VIX>25 → 卖出本周买入的 QQQ（全部）」：今天 QQQ 收 645.04、VIX 28.44，两项同时满足；持有的 75 股全部是 11-13 那批",
+   "pnl": -4045.13
+  }
+ ],
+ "notes": []
 }
