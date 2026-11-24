@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-23",
+  "kind": "daily",
+  "written_at": "21:50 ET",
+  "headline": "英伟达复任黄仁勋暴涨31%，纳指+6.9%，我们只涨1%",
+  "mood": "谨慎",
+  "market": "周一美股报复性反弹，三大指数录得 2025 年 4 月以来最好的一天：标普 500 涨约 5.0%，纳指涨 6.9%，道指涨约 1,580 点（+3.2%）。导火索是英伟达董事会宣布黄仁勋复任 CEO、总裁和董事，英伟达涨 31.5% 收 165.05，市值一天增加近 1 万亿美元。快照里 QQQ 收 651.03（+7.0%），SMH +15.0%，SPY 722.29（+4.7%）；VIX 从 35.89 回落 25.8% 到 26.62，10 年期收益率约 4.92% 基本不动。我们的防守持仓只小幅跟涨：LLY +1.3%、XLV +1.2%、BRK-B +0.4%，SHY 持平。",
+  "news": [
+    {"title": "Stock market today: Dow, S&P 500, Nasdaq post best day since April 2025 as Nvidia stock soars 31% on Jensen Huang's return", "source": "Yahoo Finance", "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-surge-after-nvidia-reinstates-jensen-huang-182039397.html"},
+    {"title": "Nvidia shares soar more than 30% after Huang reinstated as CEO", "source": "CNN", "url": "https://www.cnn.com/2026/11/23/markets/us-stocks-rebound-intl"},
+    {"title": "NVIDIA Corp Form 8-K (Nov 23 press release: board reinstates Jensen Huang)", "source": "SEC EDGAR", "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000090/nov23pressrelease.htm"},
+    {"title": "NVIDIA Announces CEO Transition (Nov 12)", "source": "NVIDIA Investor Relations", "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-CEO-Transition/"},
+    {"title": "Wall Street just put a $1 trillion price on Jensen Huang as Nvidia stock soars 31% after his return as CEO", "source": "Fortune", "url": "https://fortune.com/2026/11/23/wall-street-1-trillion-jensen-huang-nvidia-stock-market-cap/"}
+  ],
+  "thinking": "运行说明：21:40 ET 运行时快照仍是 11-20，手动触发 market 工作流后拿到 21:41 ET 的 11-23 收盘快照。指数涨幅来自 Yahoo Finance / CNN，与快照一致。\n今天发生了什么：11-12 黄仁勋因涉及外国情报活动的报道辞去 CEO，CFO Kress 代理；11-18 董事会主席还表示无意让他回来。今天的 8-K 说董事会与他会谈后、并听取了美国政府高级官员“不构成国家安全风险”的意见，决定让他复任；但独立委员会的调查仍在继续，SEC 对信息披露的调查也没有结论。所以英伟达最大的不确定性之一（管理层真空）消除了，监管和调查的尾部风险还在。网上有更耸动的说法，我核实不了，不采用。\n今天的账：净值 982,808，当日 +1.08%；QQQ +7.0%。累计我们 -1.72%，QQQ 全收益 -8.28%，领先从上周五的 11.5 个百分点缩到约 6.6 个百分点。这正是 11-20 周决策里写下的代价——“如果出现 V 形反弹，大概会还回去 6~8 个百分点”，一天就还了 5 个点。我不后悔周五没抄底：当时拿不出具体的利好理由，今天的反弹是一个无法预测的公司治理事件驱动的。但要坦白：我们现在几乎没有科技敞口（约 6%），这类事件性的反弹我们完全接不住，这是配置的结构性问题，不只是运气。\n对照条件：\n1）止损 / 减仓条件：SPY 722 远高于 655，JPM 316.7 > 295，AAPL 349 > 325，MSFT 492.5 > 460，LLY 1364.6 > 1280，全部未触发，今天不下单。\n2）11-27 周决策的回补条件 A（VIX<30 且 QQQ>630）今天已经满足：VIX 26.62，QQQ 651。但按手册，日常日志不能买，只能等周五决策；订单会在下周一（11-30）收盘成交。届时要看条件是否仍成立，以及反弹是不是一日行情——上周一和上周四的反弹都是卖点。我倾向于如果周五条件仍满足，就按计划买约 5% 净值的 QQQ，不追更多；如果 QQQ 又跌回 630 以下就继续等。\n3）个股芯片仍然不碰：英伟达一天 +31% 说明它现在是事件驱动的高波动品种（量比 2.7），调查结论出来之前不适合我们。\n接下来几天：11-25 前后有数据（PCE 等）和 FOMC 纪要的可能影响，11-26 感恩节休市，11-27 半日交易并做周决策。",
+  "watch": [
+    "止损 / 减仓条件不变：SPY<655 且 VIX>35 → 卖 64 股 SPY；JPM<295 → 全卖 147 股；AAPL<325 → 卖 56 股；MSFT<460 → 卖 47 股；LLY<1280 → 卖 19 股",
+    "回补条件 A 已在 11-23 满足（VIX 26.62、QQQ 651）；11-27 周决策时复核：若 VIX<30 且 QQQ>630 仍成立 → 买约 5% 净值 QQQ",
+    "英伟达独立委员会调查和 SEC 调查的进展；反弹能否持续超过一两天",
+    "12 月 FOMC 加息预期、10 年期收益率 4.9% 附近的走向；感恩节周 11-26 休市、11-27 半日"
+  ]
+}
