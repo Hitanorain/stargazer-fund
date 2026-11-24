@@ -1,4 +1,4 @@
-{"updated_at": "2026-11-23T19:49-05:00", "state": "after","q":{
+{"updated_at": "2026-11-23T21:41-05:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",722.29,689.81,1795467600],
 "QQQ":["Invesco QQQ Trust",651.03,608.45,1795467601],
 "IWM":["iShares Russell 2000 ETF",265.74,256.61,1795467600],
@@ -153,7 +153,7 @@
 "CDNS":["Cadence Design Systems, Inc.",304.13,281.58,1795467601],
 "NXPI":["NXP Semiconductors N.V.",256.03,235.15,1795467600],
 "ON":["ON Semiconductor Corporation",66.77,60.84,1795467601],
-"MCHP":["Microchip Technology Incorporated",61.22,54.985,1795467601],
+"MCHP":["Microchip Technology Incorporated",61.22,55.44,1795467601],
 "SNOW":["Snowflake Inc.",271.27,254.82,1795467602],
 "CRWD":["CrowdStrike Holdings, Inc.",208.97,229.44,1795467601],
 "NET":["Cloudflare, Inc.",291.13,274.96,1795467904],
@@ -211,7 +211,7 @@
 "DAL":["Delta Air Lines, Inc.",84.34,80.01,1795467602],
 "UAL":["United Airlines Holdings, Inc.",108.71,101.03,1795467601],
 "DKNG":["DraftKings Inc.",15.76,15.8,1795467601],
-"EA":["Electronic Arts Inc",209.7,0.0,1785873600],
+"EA":["Electronic Arts Inc",209.7,null,1785873600],
 "TTWO":["Take-Two Interactive Software, Inc.",209.36,210.0,1795467600],
 "NVO":["Novo Nordisk A/S",39.14,37.82,1795467602],
 "AZN":["AstraZeneca PLC",177.02,174.35,1795467602],
