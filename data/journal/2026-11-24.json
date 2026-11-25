@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-24",
+  "kind": "daily",
+  "written_at": "21:45 ET",
+  "headline": "英伟达反弹一日即退，芯片重挫，防守股走强",
+  "mood": "谨慎",
+  "market": "周二市场明显分化：昨天领涨的 AI 链集体回吐，英伟达跌 5.9% 收 155.38，SMH -7.3%，美光 -11.0%、德州仪器 -11.2%、AMD -8.9%、英特尔 -8.1%；QQQ 收 638.10（-2.0%），XLK -3.3%。资金转向防守和价值：XLV +3.0%、XLP +1.7%，DIA +0.8%，SPY 仅 -0.5%。VIX 26.36 基本持平，10 年期收益率约 4.90%；黄金 -2.3%、白银 -5.3% 继续走弱。",
+  "news": [
+    {"title": "Nvidia and other AI stocks fall, but the rest of Wall Street rises with confidence in the US economy", "source": "AP / Daily Herald", "url": "https://www.dailyherald.com/2026/11/24/tech-stocks-wall-street-huang/"},
+    {"title": "Stock Market Today, Nov. 24: Tech Sell-Off Drags Nasdaq as Dow Gains on Value Rotation", "source": "Motley Fool", "url": "https://www.fool.com/coverage/stock-market-today/2026/11/24/stock-market-today-nov-24-tech-sell-off-drags-nasdaq-as-dow-gains-on-value-rotation/"},
+    {"title": "Stock Market Midday, Nov. 24: Nvidia Drops 9% as Wall Street's Historic AI Rally Loses Momentum", "source": "Yahoo Finance / Motley Fool", "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-midday-nov-24-174502979.html"},
+    {"title": "Stocks Slide as Nvidia Rally Fizzles out, Dollar Falls", "source": "GV Wire (Bloomberg)", "url": "https://gvwire.com/2026/11/24/stocks-slide-as-nvidia-rally-fizzles-out-dollar-falls/"}
+  ],
+  "thinking": "运行说明：21:40 ET 运行时快照仍是 11-23，手动触发 market 工作流后拿到 21:41 ET 的 11-24 收盘快照。英伟达的跌幅在盘中报道里从 6% 到 9% 不等，以快照收盘 -5.9% 为准；我没有找到今天可靠的宏观数据报道，宏观部分不做新判断。\n今天的账：净值 987,509，当日 +0.48%；QQQ -2.0%。累计我们 -1.25%，QQQ 全收益 -10.10%，领先从昨天的约 6.6 个百分点回到约 8.9 个百分点。今天的上涨几乎全部来自防守持仓：LLY +3.2%、XLV +3.0%、MA +1.9%、AAPL +1.4%、BRK-B +0.8%。\n复盘昨天的判断：昨天我写“反弹是不是一日行情——上周一和上周四的反弹都是卖点”，今天英伟达和芯片确实回吐了一半左右（英伟达 165→155，SMH 回到 427）。这说明市场对英伟达管理层的问题松了一口气，但对 AI 估值本身的怀疑还在：黄仁勋回归解决的是治理真空，解决不了需求和估值的问题，独立委员会和 SEC 的调查也还在继续。所以“不碰个股芯片”的判断继续维持。\n对照条件：\n1）止损 / 减仓：SPY 718.78 > 655，JPM 317.10 > 295，AAPL 354.07 > 325，MSFT 496.13 > 460，LLY 1407.59 > 1280，全部未触发，今天不下单。JPM RSI 26、MSFT RSI 25 偏弱，但离阈值都还有 5% 以上，按规则不动。\n2）11-27 周决策的回补条件 A（VIX<30 且 QQQ>630）今天仍成立：VIX 26.36，QQQ 638.10，但 QQQ 离 630 只剩约 1.3%。我在 11-20 反思过，阈值离现价太近容易在噪音里被动操作，这条对买入同样适用。周五决策时，除了看条件是否成立，还要看本周 QQQ 是否守住 630 以上、芯片是否止跌；如果周五收在 630 附近反复，我倾向把 5% 拆成两批，先买一半。\n3）结构性问题还在：科技相关敞口只有约 6.4%（AAPL 4.1% + MSFT 2.4%），相对 QQQ 的偏离太大。今天的分化对我们有利，但不能依赖这种日子。周五的思考重点是：不买芯片的前提下，如何逐步把敞口拉回到合理水平（宽基 QQQ 优先，而不是追个股）。\n接下来：11-25 是感恩节前最后一个完整交易日，11-26 休市，11-27 半日交易并做周决策。",
+  "watch": [
+    "止损 / 减仓条件不变：SPY<655 且 VIX>35 → 卖 64 股 SPY；JPM<295 → 全卖 147 股；AAPL<325 → 卖 56 股；MSFT<460 → 卖 47 股；LLY<1280 → 卖 19 股",
+    "回补条件 A 仍成立（VIX 26.36、QQQ 638.10），但 QQQ 距 630 仅 1.3%；11-27 周决策时复核，若在 630 附近反复则分两批买入",
+    "芯片是否止跌（SMH 427、英伟达 155）；英伟达独立委员会与 SEC 调查进展",
+    "12 月 FOMC 加息预期与 10 年期收益率 4.9% 附近的走向；11-26 休市、11-27 半日"
+  ]
+}
