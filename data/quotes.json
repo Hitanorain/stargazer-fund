@@ -1,4 +1,4 @@
-{"updated_at": "2026-11-24T18:02-05:00", "state": "after","q":{
+{"updated_at": "2026-11-24T21:41-05:00", "state": "after","q":{
 "SPY":["State Street SPDR S&P 500 ETF Trust",718.78,722.29,1795554000],
 "QQQ":["Invesco QQQ Trust",638.1,651.03,1795554000],
 "IWM":["iShares Russell 2000 ETF",267.14,265.74,1795554000],
@@ -36,10 +36,10 @@
 "UNH":["UnitedHealth Group Incorporated",341.88,336.08,1795554002],
 "LLY":["Eli Lilly and Company",1407.59,1364.6,1795554168],
 "XOM":["ExxonMobil Holdings Corporation",158.23,156.9,1795554211],
-"JNJ":["Johnson & Johnson",276.46,268.71,1795554002],
+"JNJ":["Johnson & Johnson",276.46,270.05,1795554002],
 "PG":["The Procter & Gamble Company",172.47,169.6,1795554127],
 "HD":["The Home Depot, Inc.",353.69,346.06,1795554002],
-"COST":["Costco Wholesale Corporation",1091.71,1067.91,1795554000],
+"COST":["Costco Wholesale Corporation",1091.71,1097.91,1795554000],
 "ABBV":["AbbVie Inc.",300.28,288.45,1795554159],
 "MRK":["Merck & Co., Inc.",141.57,135.47,1795554131],
 "PEP":["PepsiCo, Inc.",142.68,140.21,1795554001],
@@ -211,7 +211,7 @@
 "DAL":["Delta Air Lines, Inc.",84.5,84.34,1795554002],
 "UAL":["United Airlines Holdings, Inc.",107.8,108.71,1795554001],
 "DKNG":["DraftKings Inc.",16.11,15.76,1795554001],
-"EA":["Electronic Arts Inc",209.7,0.0,1785873600],
+"EA":["Electronic Arts Inc",209.7,null,1785873600],
 "TTWO":["Take-Two Interactive Software, Inc.",220.41,209.36,1795554001],
 "NVO":["Novo Nordisk A/S",40.31,39.14,1795554002],
 "AZN":["AstraZeneca PLC",183.2,177.02,1795554002],
