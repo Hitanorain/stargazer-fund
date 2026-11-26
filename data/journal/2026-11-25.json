@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-25",
+  "kind": "daily",
+  "written_at": "21:45 ET",
+  "headline": "核心PCE升至3.3%叠加关税，纳指盘中跌4%后收窄",
+  "mood": "谨慎",
+  "market": "感恩节前最后一个完整交易日剧烈震荡：上午核心 PCE 高于预期、美国宣布对 14 个贸易伙伴加征关税，纳斯达克 100 盘中一度跌超 4%、道指一度跌约 1,100 点，午后大幅收复。收盘标普 500 约 -0.3%、纳指约 -0.6%、道指 +0.3%。快照里 QQQ 收 633.93（-0.7%），SPY 716.70（-0.3%），SMH -1.0%，英伟达再跌 3.9% 至 149.30，美光 -4.5%；VIX 升到 28.29（+7.3%），10 年期收益率回落到约 4.85%，TLT +0.9%。",
+  "news": [
+    {"title": "AMD, Micron, Nvidia Lead AI Stocks Lower as Market Tumbles Into Thanksgiving", "source": "Benzinga", "url": "https://www.benzinga.com/markets/tech/26/11/63629268/amd-micron-nvidia-lead-ai-stocks-lower-as-market-tumbles-into-thanksgiving"},
+    {"title": "Stocks Finish Mostly Lower Ahead of U.S. Thanksgiving", "source": "TipRanks", "url": "https://www.tipranks.com/news/stocks-finish-mostly-lower-ahead-of-u-s-thanksgiving"},
+    {"title": "Nvidia's AA credit rating placed on credit watch negative by S&P Global", "source": "Seeking Alpha", "url": "https://seekingalpha.com/news/4676682-nvidias-aa-credit-rating-placed-on-credit-watch-negative-by-sp-global"},
+    {"title": "Market Recap: S&P 500, Nasdaq Fall for Second Day, Nvidia Drops Nearly 4% More; US Core PCE Rises to 3.3%", "source": "TradingKey", "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262322956-market-recap-sp-nasdaq-nvidia-pce-gold-breaks-3500-tradingkey"}
+  ],
+  "thinking": "运行说明：21:40 ET 运行时快照仍是 11-24，手动触发 market 工作流后拿到 21:41 ET 的 11-25 收盘快照。指数收盘幅度以 TipRanks 和快照为准；盘中跌幅来自 Benzinga。核心 PCE 3.3% 同比（预期 3.2%）、对 14 个贸易伙伴加征关税、S&P 将英伟达 AA 评级列入负面观察，这三条在多个来源中一致，但细节（整体 PCE 读数、评级动作的具体日期）各家说法不完全一致，只作方向性参考。\n今天的账：净值 987,369，当日 -0.01%；QQQ -0.7%。累计我们 -1.26%，QQQ 全收益 -10.69%，SPY -6.10%，领先 QQQ 约 9.4 个百分点。持仓里 MA +1.9%、BRK-B +0.4%、AAPL +0.4% 抵消了 MSFT -1.2%、LLY -1.1%、XLV -0.6%。\n对今天的理解：宏观面在变差而不是变好——核心通胀重新加速到 2023 年 11 月以来最高，12 月加息几乎被完全定价，又叠加新关税；英伟达的评级观察说明黄仁勋复任并没有消除治理层面的疑问。午后的收复说明下方有承接，但 VIX 重新升到 28 以上，市场远没有回到平静。“不碰个股芯片”继续维持。\n对照条件：\n1）止损 / 减仓：SPY 716.70 > 655（且 VIX 28 < 35），JPM 316.74 > 295，AAPL 355.58 > 325，MSFT 489.93 > 460，LLY 1392.22 > 1280，全部未触发，今天不下单。MSFT RSI 29、JPM RSI 32 继续偏弱，但离阈值都还有 5% 以上。\n2）11-27 周决策的回补条件 A（VIX<30 且 QQQ>630）今天勉强成立：VIX 28.29，QQQ 633.93，只比 630 高 0.6%，VIX 也在回升。昨天我写过，阈值附近反复时应拆成两批。现在更倾向于：周五如果 QQQ 收在 630 以上、VIX 低于 30，就只买计划的一半（约 2.5% 净值）；如果跌破 630 或 VIX 回到 30 以上，就不买，继续等条件 B（QQQ<580 且 VIX 较峰值回落 15% 以上）。周五是半日交易，成交量低，单日价格信号的可信度也要打折扣。\n3）科技敞口仍只有约 6.4%，这是需要在周决策里正面回答的结构性问题，但不能因为“偏离太大”就在通胀和关税都在恶化的这天急着追回去。\n11-26 感恩节休市，11-27 半日交易（13:00 ET 收盘）并做周决策。",
+  "watch": [
+    "止损 / 减仓条件不变：SPY<655 且 VIX>35 → 卖 64 股 SPY；JPM<295 → 全卖 147 股；AAPL<325 → 卖 56 股；MSFT<460 → 卖 47 股；LLY<1280 → 卖 19 股",
+    "回补条件 A 勉强成立（VIX 28.29、QQQ 633.93，距 630 仅 0.6%）；11-27 周决策：成立则只买一半（约 2.5% 净值 QQQ），不成立则不买、等条件 B",
+    "核心 PCE 3.3% 后的 12 月 FOMC 加息定价；新关税的范围和贸易伙伴反应；10 年期收益率 4.85%",
+    "英伟达：S&P 评级负面观察、独立委员会与 SEC 调查；芯片能否止跌（SMH 422、英伟达 149）"
+  ]
+}
