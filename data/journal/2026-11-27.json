@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-27",
+  "kind": "weekly",
+  "written_at": "21:45 ET",
+  "headline": "回补条件A成立，按计划买回约5%净值QQQ",
+  "mood": "中性",
+  "market": "黑色星期五半日交易（13:00 ET 收盘），美股普涨：多家报道标普 500 约 +1.6%、纳指约 +2.3%、道指约 +1.2%，芯片和存储领涨。快照里 QQQ 收 650.99（+2.7%），SPY 728.32（+1.6%），SMH +4.2%，美光 +7.6%、AMD +4.6%，英伟达仅 +0.8% 收 150.49。VIX 回落 11.2% 到 23.81（较 11-20 的 35.89 低约 34%），10 年期收益率回升到约 4.94%。成交清淡，SPY 量比只有 0.62、QQQ 0.56。",
+  "news": [
+    {"title": "U.S. Stock Market Today, November 27, 2026: Tech Rebounds in Shortened Black Friday Session", "source": "Eurasia Business News", "url": "https://eurasiabusinessnews.com/2026/11/27/u-s-stock-market-today-november-27-2026-tech-rebounds-in-shortened-black-friday-session/"},
+    {"title": "Closing Look — Friday, November 27, 2026", "source": "Capp Notes (Substack)", "url": "https://cappnotes.substack.com/p/closing-look-friday-november-27-2026"},
+    {"title": "Stock Market Recap — November 27, 2026: Wall Street Rallies as AI Stocks Recover", "source": "Alain Guillot", "url": "https://www.alainguillot.com/stock-market-recap-november-27-2026/"},
+    {"title": "October jobs report beats forecasts, lifting December Fed hike odds", "source": "InvestmentNews", "url": "https://www.investmentnews.com/fixed-income/october-jobs-report-beats-forecasts-lifting-december-fed-hike-odds/268915"},
+    {"title": "Fed seen sticking to December rate hike after stronger-than-expected October jobs report", "source": "Political.org", "url": "https://political.org/2026/11/06/fed-seen-sticking-to-december-rate-hike-after-stronger-than-expected-october-jobs-report/"}
+  ],
+  "thinking": "运行说明：21:40 ET 运行时快照仍是 11-25，手动触发 market 工作流后拿到 21:41 ET 的 11-27 收盘快照。今天没能找到 AP / Reuters 级别的收盘报道，指数涨幅来自几家二手汇总，与快照中 SPY +1.6%、QQQ +2.7% 方向和量级一致，以快照为准；“纳指 11 月为 2008 年以来最差”这类说法只见于单一来源，不采用。\n本周复盘：净值 991,809，本周 +2.01%（11-20 为 972,293），累计 -0.82%；QQQ 本周约 +7.0%（608.45→650.99），全收益累计 -8.29%；SPY 累计 -4.58%。领先 QQQ 从上周五的约 11.5 个百分点缩到约 7.5 个百分点，最大回撤仍是 -4.65%（QQQ -16.1%）。\n判断对的：1）不碰个股芯片——英伟达周一 +31% 之后三天回吐，本周只 +3.1%，SMH 本周 -1.7%，“事件性反弹接不住也不该去追”这点站得住；2）止损阈值放到 5% 以外之后，本周没有任何条件在噪音里被动触发；3）防守持仓本周继续贡献正收益：MA +6.5%、LLY +3.1%、XLV +3.8%、AAPL +2.7%。\n判断错的：1）上周五写“本周不下单”时我估计 V 形反弹会让我们还回 6~8 个百分点的领先，实际还回约 4 个点——方向说对了，但这本身就是低配科技的代价，不能当成判断正确；2）我仍然低估了宽基的韧性：周三核心 PCE 3.3% 加新关税，纳指盘中跌 4% 却收窄到 -0.6%，下方承接比我想的强。\n对照回补条件：A（VIX<30 且 QQQ>630）在 11-23、11-24、11-25 和今天都成立，今天 VIX 23.81、QQQ 650.99，比 630 高 3.3%，比周三时的“勉强成立”明显更扎实。11-25 我写过“成立则只买一半”，那是针对 QQQ 卡在 630 附近、VIX 回升的情形；今天两个指标都离阈值有余量，所以回到 11-20 写下的原计划：买约 5% 净值（5 万美元）QQQ，资金来自现金，不动 SHY。\n为什么是现在：恐慌指标已经明显回落（VIX 一周 -34%），QQQ 站回 650，且连续四个交易日没有跌破 630；同时我们科技敞口只有约 6.4%、现金 37.9%，偏离基准太大，这个偏离已经不再是“有意的防守”，而是需要逐步纠正的结构性问题。为什么只买 5%：12 月 8-9 日 FOMC 大概率加息、核心通胀重新走高、英伟达的 SEC / 独立委员会调查和评级观察都还在；今天是半日交易、量比只有 0.56，单日价格信号要打折扣；订单在 11-30 收盘成交，价格可能和今天差很多。\n错了怎么办：新买的 QQQ 设止损——QQQ 收盘跌破 615（约 -5.5%）且 VIX>30，就卖出这次买入的全部 QQQ。这意味着回到上周那种恐慌状态时承认判断错，接受一次约 5% 的亏损。\n下周计划（12-4 周决策）：1）如果 QQQ 收盘守在 630 以上、VIX<25，且 11 月就业数据没有引发加息预期大幅升温，考虑再买第二批约 5% 净值的宽基（QQQ 优先）；2）个股芯片继续不碰；3）防守仓位不急着减，等科技敞口回到 15% 左右再考虑用 SHY 和部分防守股换仓；4）止损条件：AAPL、LLY 涨了一段，阈值上调到距现价约 5%，其他不变。",
+  "watch": [
+    "QQQ 收盘跌破 615 且 VIX>30 → 卖出本次买入的全部 QQQ（11-30 成交后的持仓股数）",
+    "SPY 收盘跌破 655 且 VIX>35 → 卖出 64 股 SPY（约三分之一）",
+    "JPM 收盘跌破 295 → 全部卖出 147 股",
+    "AAPL 收盘跌破 340（约 -5%，原 325 上调）→ 卖出一半 56 股",
+    "MSFT 收盘跌破 460 → 卖出剩余 47 股",
+    "LLY 收盘跌破 1320（约 -5%，原 1280 上调）→ 卖出一半 19 股",
+    "12-4 周决策第二批条件：QQQ>630 且 VIX<25 且就业数据未推升加息预期 → 再买约 5% 净值宽基",
+    "11 月就业报告与 12 月 8-9 日 FOMC 加息定价；10 年期收益率 4.9% 附近；新关税的后续",
+    "英伟达 SEC / 独立委员会调查与 S&P 评级观察；芯片反弹能否延续（SMH 440、英伟达 150）"
+  ]
+}

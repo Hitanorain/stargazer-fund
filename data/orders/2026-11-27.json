@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-27",
+  "status": "pending",
+  "fill": "next_close",
+  "orders": [
+    {"symbol": "QQQ", "side": "buy", "value": 50000, "reason": "执行 11-20 周决策写下的回补条件 A：VIX 23.81<30 且 QQQ 650.99>630，连续四个交易日成立；买约 5% 净值，把过低的科技敞口逐步拉回。止损：QQQ 收盘<615 且 VIX>30 → 全部卖出本次买入部分"}
+  ]
+}
